@@ -227,5 +227,25 @@
     "homeRetry": "Tentar novamente",
     "@homeRetry": {
         "description": "Rótulo do botão para tentar carregar os anúncios novamente após erro"
+    },
+    "deleteAdDialogTitle": "Excluir anúncio",
+    "@deleteAdDialogTitle": {
+        "description": "Título do diálogo de confirmação para excluir um anúncio"
+    },
+    "deleteAdDialogMessage": "Tem certeza que deseja excluir este anúncio?",
+    "@deleteAdDialogMessage": {
+        "description": "Mensagem do corpo do diálogo de confirmação de exclusão"
+    },
+    "deleteAdDialogSubMessage": "Essa ação não pode ser desfeita.",
+    "@deleteAdDialogSubMessage": {
+        "description": "Mensagem do corpo do diálogo de confirmação de exclusão"
+    },
+    "deleteAdDialogConfirm": "Excluir",
+    "@deleteAdDialogConfirm": {
+        "description": "Rótulo do botão de confirmação no diálogo de exclusão"
+    },
+    "deleteAdDialogCancel": "Cancelar",
+    "@deleteAdDialogCancel": {
+        "description": "Rótulo do botão de cancelamento no diálogo de exclusão"
     }
 }

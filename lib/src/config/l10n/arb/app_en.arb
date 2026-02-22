@@ -227,5 +227,25 @@
     "homeRetry": "Try again",
     "@homeRetry": {
         "description": "Button label to retry loading property ads after an error"
+    },
+    "deleteAdDialogTitle": "Delete listing",
+    "@deleteAdDialogTitle": {
+        "description": "Title of the confirmation dialog for deleting a property ad"
+    },
+    "deleteAdDialogMessage": "Are you sure you want to delete this listing?",
+    "@deleteAdDialogMessage": {
+        "description": "Body message of the delete confirmation dialog"
+    },
+    "deleteAdDialogSubMessage": "This action cannot be undone.",
+    "@deleteAdDialogSubMessage": {
+        "description": "Body message of the delete confirmation dialog"
+    },
+    "deleteAdDialogConfirm": "Delete",
+    "@deleteAdDialogConfirm": {
+        "description": "Confirm button label on the delete property ad dialog"
+    },
+    "deleteAdDialogCancel": "Cancel",
+    "@deleteAdDialogCancel": {
+        "description": "Cancel button label on the delete property ad dialog"
     }
 }

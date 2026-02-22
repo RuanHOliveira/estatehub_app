@@ -27,4 +27,16 @@ class PropertyAdsRepository {
       Error(error: final e) => Result.error(e),
     };
   }
+
+  Future<Result<void>> deletePropertyAd(String id) async {
+    final token = await _localStorage.getAccessToken();
+    final result = await _propertyAdsService.deletePropertyAd(
+      id: id,
+      token: token ?? '',
+    );
+    return switch (result) {
+      Success() => Result.success(null),
+      Error(error: final e) => Result.error(e),
+    };
+  }
 }

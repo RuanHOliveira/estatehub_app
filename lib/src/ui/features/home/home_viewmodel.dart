@@ -24,9 +24,11 @@ class HomeViewModel extends ChangeNotifier {
        _localStorage = localStorage;
 
   late final loadAds = Command0<void>(_loadAds);
+  late final deletePropertyAdCommand = Command1<void, String>(_deletePropertyAd);
 
   PropertyAdFilter get activeFilter => _activeFilter;
   String get searchText => _searchText;
+  String get currentUserId => _currentUserId;
 
   List<PropertyAdModel> get filteredAds {
     var list = _allAds;
@@ -82,5 +84,13 @@ class HomeViewModel extends ChangeNotifier {
       case Error(error: final e):
         return Result.error(e);
     }
+  }
+
+  Future<Result<void>> _deletePropertyAd(String id) async {
+    final result = await _propertyAdsRepository.deletePropertyAd(id);
+    if (result is Success) {
+      await loadAds.execute();
+    }
+    return result;
   }
 }

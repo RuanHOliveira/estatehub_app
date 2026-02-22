@@ -188,4 +188,20 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get homeRetry => 'Intentar de nuevo';
+
+  @override
+  String get deleteAdDialogTitle => 'Eliminar anuncio';
+
+  @override
+  String get deleteAdDialogMessage =>
+      '¿Está seguro de que desea eliminar este anuncio?';
+
+  @override
+  String get deleteAdDialogSubMessage => 'Esta acción no se puede deshacer.';
+
+  @override
+  String get deleteAdDialogConfirm => 'Eliminar';
+
+  @override
+  String get deleteAdDialogCancel => 'Cancelar';
 }

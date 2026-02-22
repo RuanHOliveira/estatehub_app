@@ -45,6 +45,40 @@ class ApiService {
     }
   }
 
+  Future<Result<void>> delete(
+    String path, {
+    required String token,
+  }) async {
+    try {
+      final uri = Uri.parse('$_baseUrl$path');
+      final headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer $token',
+      };
+      final response = await http
+          .delete(uri, headers: headers)
+          .timeout(const Duration(seconds: 15));
+
+      if (response.statusCode >= 200 && response.statusCode < 300) {
+        return Result.success(null);
+      }
+
+      final decoded =
+          response.body.isNotEmpty ? jsonDecode(response.body) : null;
+      final errorCode =
+          (decoded is Map<String, dynamic> ? decoded['error_code'] : null) ??
+          'ErrUnknown';
+      return Result.error(
+        AppException(
+          errorCode: errorCode as String,
+          statusCode: response.statusCode,
+        ),
+      );
+    } catch (_) {
+      return Result.error(AppException.unknown());
+    }
+  }
+
   Future<Result<Map<String, dynamic>>> post(
     String path,
     Map<String, dynamic> body,

@@ -442,6 +442,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Try again'**
   String get homeRetry;
+
+  /// Title of the confirmation dialog for deleting a property ad
+  ///
+  /// In en, this message translates to:
+  /// **'Delete listing'**
+  String get deleteAdDialogTitle;
+
+  /// Body message of the delete confirmation dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this listing?'**
+  String get deleteAdDialogMessage;
+
+  /// Body message of the delete confirmation dialog
+  ///
+  /// In en, this message translates to:
+  /// **'This action cannot be undone.'**
+  String get deleteAdDialogSubMessage;
+
+  /// Confirm button label on the delete property ad dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get deleteAdDialogConfirm;
+
+  /// Cancel button label on the delete property ad dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get deleteAdDialogCancel;
 }
 
 class _AppLocalizationsDelegate

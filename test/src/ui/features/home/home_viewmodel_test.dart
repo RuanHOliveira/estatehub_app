@@ -265,5 +265,108 @@ void main() {
         expect(viewModel.filteredAds.first.id, 'sale-sp');
       });
     });
+
+    group('deletePropertyAdCommand', () {
+      final tAds = [
+        _makeAd(id: 'ad-1', userId: tCurrentUserId, type: 'SALE'),
+        _makeAd(id: 'ad-2', userId: 'other-user', type: 'RENT'),
+        _makeAd(id: 'ad-3', userId: tCurrentUserId, type: 'SALE'),
+      ];
+
+      setUp(() async {
+        when(
+          () => mockLocalStorage.getUser(),
+        ).thenAnswer((_) async => tUserJson);
+        when(
+          () => mockRepository.fetchPropertyAds(),
+        ).thenAnswer((_) async => Result.success(tAds));
+
+        await viewModel.loadAds.execute();
+      });
+
+      test(
+        'refaz o fetch e lista atualizada não contém o anúncio deletado',
+        () async {
+          final tAdsAfterDelete = [
+            _makeAd(id: 'ad-2', userId: 'other-user', type: 'RENT'),
+            _makeAd(id: 'ad-3', userId: tCurrentUserId, type: 'SALE'),
+          ];
+
+          when(
+            () => mockRepository.deletePropertyAd('ad-1'),
+          ).thenAnswer((_) async => Result.success(null));
+          when(
+            () => mockRepository.fetchPropertyAds(),
+          ).thenAnswer((_) async => Result.success(tAdsAfterDelete));
+
+          await viewModel.deletePropertyAdCommand.execute('ad-1');
+
+          expect(viewModel.deletePropertyAdCommand.success, true);
+          expect(viewModel.filteredAds.any((a) => a.id == 'ad-1'), false);
+          expect(viewModel.filteredAds.length, 2);
+          verify(() => mockRepository.deletePropertyAd('ad-1')).called(1);
+          // fetchPropertyAds chamado 2x: setUp + refetch após delete
+          verify(() => mockRepository.fetchPropertyAds()).called(2);
+        },
+      );
+
+      test(
+        'mantém lista intacta e define estado de erro quando delete falha',
+        () async {
+          const tException = AppException(
+            errorCode: 'ErrPropertyAdNotFound',
+            statusCode: 404,
+          );
+
+          when(
+            () => mockRepository.deletePropertyAd('ad-1'),
+          ).thenAnswer((_) async => Result.error(tException));
+
+          await viewModel.deletePropertyAdCommand.execute('ad-1');
+
+          expect(viewModel.deletePropertyAdCommand.error, true);
+          expect(
+            (viewModel.deletePropertyAdCommand.result as Error).error.errorCode,
+            'ErrPropertyAdNotFound',
+          );
+          expect(viewModel.filteredAds.length, 3);
+          expect(viewModel.filteredAds.any((a) => a.id == 'ad-1'), true);
+          // fetchPropertyAds não deve ser chamado novamente em caso de erro
+          verify(() => mockRepository.fetchPropertyAds()).called(1);
+        },
+      );
+
+      test(
+        'não remove outros anúncios ao deletar um específico',
+        () async {
+          final tAdsAfterDelete = [
+            _makeAd(id: 'ad-1', userId: tCurrentUserId, type: 'SALE'),
+            _makeAd(id: 'ad-2', userId: 'other-user', type: 'RENT'),
+          ];
+
+          when(
+            () => mockRepository.deletePropertyAd('ad-3'),
+          ).thenAnswer((_) async => Result.success(null));
+          when(
+            () => mockRepository.fetchPropertyAds(),
+          ).thenAnswer((_) async => Result.success(tAdsAfterDelete));
+
+          await viewModel.deletePropertyAdCommand.execute('ad-3');
+
+          final ids = viewModel.filteredAds.map((a) => a.id).toList();
+          expect(ids, contains('ad-1'));
+          expect(ids, contains('ad-2'));
+          expect(ids, isNot(contains('ad-3')));
+        },
+      );
+
+      test(
+        'estado inicial do comando não tem resultado',
+        () {
+          expect(viewModel.deletePropertyAdCommand.result, isNull);
+          expect(viewModel.deletePropertyAdCommand.running, false);
+        },
+      );
+    });
   });
 }

@@ -185,4 +185,20 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeRetry => 'Try again';
+
+  @override
+  String get deleteAdDialogTitle => 'Delete listing';
+
+  @override
+  String get deleteAdDialogMessage =>
+      'Are you sure you want to delete this listing?';
+
+  @override
+  String get deleteAdDialogSubMessage => 'This action cannot be undone.';
+
+  @override
+  String get deleteAdDialogConfirm => 'Delete';
+
+  @override
+  String get deleteAdDialogCancel => 'Cancel';
 }

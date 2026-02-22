@@ -16,4 +16,18 @@ class PropertyAdsService {
       Error(error: final e) => Result.error(e),
     };
   }
+
+  Future<Result<void>> deletePropertyAd({
+    required String id,
+    required String token,
+  }) async {
+    final result = await _apiService.delete(
+      '/property-ads/$id',
+      token: token,
+    );
+    return switch (result) {
+      Success() => Result.success(null),
+      Error(error: final e) => Result.error(e),
+    };
+  }
 }

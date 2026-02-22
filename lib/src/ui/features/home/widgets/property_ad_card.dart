@@ -9,8 +9,16 @@ import 'package:intl/intl.dart';
 class PropertyAdCard extends StatelessWidget {
   final PropertyAdModel ad;
   final VoidCallback? onTap;
+  final bool isOwner;
+  final VoidCallback? onDeleteTap;
 
-  const PropertyAdCard({super.key, required this.ad, this.onTap});
+  const PropertyAdCard({
+    super.key,
+    required this.ad,
+    this.onTap,
+    this.isOwner = false,
+    this.onDeleteTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +52,31 @@ class PropertyAdCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _PropertyImage(imageData: ad.imageData),
+            Stack(
+              children: [
+                _PropertyImage(imageData: ad.imageData),
+                if (isOwner && onDeleteTap != null)
+                  Positioned(
+                    top: 8,
+                    right: 8,
+                    child: GestureDetector(
+                      onTap: onDeleteTap,
+                      child: Container(
+                        padding: const EdgeInsets.all(6),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withValues(alpha: 0.45),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: const Icon(
+                          Icons.delete_outline_rounded,
+                          color: Colors.white,
+                          size: 18,
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
             Padding(
               padding: const EdgeInsets.all(12),
               child: Column(

@@ -227,5 +227,25 @@
     "homeRetry": "Intentar de nuevo",
     "@homeRetry": {
         "description": "Etiqueta del botón para reintentar la carga de anuncios tras un error"
+    },
+    "deleteAdDialogTitle": "Eliminar anuncio",
+    "@deleteAdDialogTitle": {
+        "description": "Título del diálogo de confirmación para eliminar un anuncio"
+    },
+    "deleteAdDialogMessage": "¿Está seguro de que desea eliminar este anuncio?",
+    "@deleteAdDialogMessage": {
+        "description": "Mensaje del cuerpo del diálogo de confirmación de eliminación"
+    },
+    "deleteAdDialogSubMessage": "Esta acción no se puede deshacer.",
+    "@deleteAdDialogSubMessage": {
+        "description": "Mensaje del cuerpo del diálogo de confirmación de eliminación"
+    },
+    "deleteAdDialogConfirm": "Eliminar",
+    "@deleteAdDialogConfirm": {
+        "description": "Etiqueta del botón de confirmación en el diálogo de eliminación"
+    },
+    "deleteAdDialogCancel": "Cancelar",
+    "@deleteAdDialogCancel": {
+        "description": "Etiqueta del botón de cancelar en el diálogo de eliminación"
     }
 }

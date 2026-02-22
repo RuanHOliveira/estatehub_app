@@ -227,5 +227,25 @@
     "homeRetry": "Tentar novamente",
     "@homeRetry": {
         "description": "Rótulo do botão para tentar carregar os anúncios novamente após erro"
+    },
+    "deleteAdDialogTitle": "Eliminar anúncio",
+    "@deleteAdDialogTitle": {
+        "description": "Título do diálogo de confirmação para eliminar um anúncio"
+    },
+    "deleteAdDialogMessage": "Tem a certeza que deseja eliminar este anúncio?",
+    "@deleteAdDialogMessage": {
+        "description": "Mensagem do corpo do diálogo de confirmação de eliminação"
+    },
+    "deleteAdDialogSubMessage": "Esta ação não pode ser revertida.",
+    "@deleteAdDialogSubMessage": {
+        "description": "Mensagem do corpo do diálogo de confirmação de eliminação"
+    },
+    "deleteAdDialogConfirm": "Eliminar",
+    "@deleteAdDialogConfirm": {
+        "description": "Rótulo do botão de confirmação no diálogo de eliminação"
+    },
+    "deleteAdDialogCancel": "Cancelar",
+    "@deleteAdDialogCancel": {
+        "description": "Rótulo do botão de cancelamento no diálogo de eliminação"
     }
 }

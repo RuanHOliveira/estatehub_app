@@ -1,5 +1,6 @@
 import 'package:estatehub_app/src/config/l10n/gen/app_localizations.dart';
 import 'package:estatehub_app/src/ui/core/themes/app_text_styles.dart';
+import 'package:estatehub_app/src/ui/core/widgets/dialogs/custom_general_dialog.dart';
 import 'package:estatehub_app/src/ui/core/widgets/navigation/custom_sliver_app_bar.dart';
 import 'package:estatehub_app/src/ui/core/widgets/useful/custom_toast.dart';
 import 'package:estatehub_app/src/ui/features/home/home_viewmodel.dart';
@@ -30,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     widget._homeViewModel.loadAds.addListener(_onLoadAdsResult);
+    widget._homeViewModel.deletePropertyAdCommand.addListener(_onDeleteResult);
     if (widget.refreshOnInit) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         widget._homeViewModel.loadAds.execute();
@@ -41,12 +43,17 @@ class _HomeScreenState extends State<HomeScreen> {
   void didUpdateWidget(covariant HomeScreen oldWidget) {
     super.didUpdateWidget(oldWidget);
     oldWidget._homeViewModel.loadAds.removeListener(_onLoadAdsResult);
+    oldWidget._homeViewModel.deletePropertyAdCommand
+        .removeListener(_onDeleteResult);
     widget._homeViewModel.loadAds.addListener(_onLoadAdsResult);
+    widget._homeViewModel.deletePropertyAdCommand.addListener(_onDeleteResult);
   }
 
   @override
   void dispose() {
     widget._homeViewModel.loadAds.removeListener(_onLoadAdsResult);
+    widget._homeViewModel.deletePropertyAdCommand
+        .removeListener(_onDeleteResult);
     _searchController.dispose();
     super.dispose();
   }
@@ -63,6 +70,38 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  void _onDeleteResult() {
+    final loc = AppLocalizations.of(context)!;
+    if (widget._homeViewModel.deletePropertyAdCommand.result
+        case Error(error: final e)) {
+      _customToast.showToast(
+        context,
+        message: ErrorMapper.map(e.errorCode, loc),
+        toastType: 'error',
+      );
+      widget._homeViewModel.deletePropertyAdCommand.clearResult();
+    }
+  }
+
+  void _showDeleteDialog(BuildContext context, String adId) {
+    final loc = AppLocalizations.of(context)!;
+    final vm = widget._homeViewModel;
+    showCustomGeneralDialog(
+      context,
+      title: loc.deleteAdDialogTitle,
+      message: loc.deleteAdDialogMessage,
+      subMessage: loc.deleteAdDialogSubMessage,
+      icon: Icons.delete_outline_rounded,
+      confirmText: loc.deleteAdDialogConfirm,
+      cancelText: loc.deleteAdDialogCancel,
+      loadingStyle: LoadingStyle.spinnerOnConfirmButton,
+      onConfirmAsync: () async {
+        await vm.deletePropertyAdCommand.execute(adId);
+        return vm.deletePropertyAdCommand.success;
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final loc = AppLocalizations.of(context)!;
@@ -71,6 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
       listenable: Listenable.merge([
         widget._homeViewModel,
         widget._homeViewModel.loadAds,
+        widget._homeViewModel.deletePropertyAdCommand,
       ]),
       builder: (context, _) {
         final vm = widget._homeViewModel;
@@ -158,10 +198,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           final ad = ads[index];
                           return PropertyAdCard(
                             ad: ad,
-                            onTap: () {
-                              // TODO: navigate to property ad detail
-                              print('Tap: ${ad.id}');
-                            },
+                            isOwner: ad.userId == vm.currentUserId,
+                            onDeleteTap: ad.userId == vm.currentUserId
+                                ? () => _showDeleteDialog(context, ad.id)
+                                : null,
                           );
                         },
                         childCount: ads.length,

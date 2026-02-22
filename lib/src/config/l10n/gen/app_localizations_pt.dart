@@ -187,6 +187,22 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeRetry => 'Tentar novamente';
+
+  @override
+  String get deleteAdDialogTitle => 'Eliminar anúncio';
+
+  @override
+  String get deleteAdDialogMessage =>
+      'Tem a certeza que deseja eliminar este anúncio?';
+
+  @override
+  String get deleteAdDialogSubMessage => 'Esta ação não pode ser revertida.';
+
+  @override
+  String get deleteAdDialogConfirm => 'Eliminar';
+
+  @override
+  String get deleteAdDialogCancel => 'Cancelar';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -372,4 +388,20 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get homeRetry => 'Tentar novamente';
+
+  @override
+  String get deleteAdDialogTitle => 'Excluir anúncio';
+
+  @override
+  String get deleteAdDialogMessage =>
+      'Tem certeza que deseja excluir este anúncio?';
+
+  @override
+  String get deleteAdDialogSubMessage => 'Essa ação não pode ser desfeita.';
+
+  @override
+  String get deleteAdDialogConfirm => 'Excluir';
+
+  @override
+  String get deleteAdDialogCancel => 'Cancelar';
 }

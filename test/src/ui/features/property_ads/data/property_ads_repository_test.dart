@@ -180,5 +180,97 @@ void main() {
         },
       );
     });
+
+    group('deletePropertyAd', () {
+      const tAdId = 'ad-uuid-1';
+
+      test(
+        'deve retornar sucesso quando service deleta com sucesso',
+        () async {
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => tToken);
+          when(
+            () => mockService.deletePropertyAd(id: tAdId, token: tToken),
+          ).thenAnswer((_) async => Result.success(null));
+
+          final result = await repository.deletePropertyAd(tAdId);
+
+          expect(result, isA<Success<void>>());
+          verify(() => mockLocalStorage.getAccessToken()).called(1);
+          verify(
+            () => mockService.deletePropertyAd(id: tAdId, token: tToken),
+          ).called(1);
+        },
+      );
+
+      test(
+        'deve retornar erro ErrPropertyAdNotFound quando anúncio não existe (404)',
+        () async {
+          const tException = AppException(
+            errorCode: 'ErrPropertyAdNotFound',
+            statusCode: 404,
+          );
+
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => tToken);
+          when(
+            () => mockService.deletePropertyAd(id: tAdId, token: tToken),
+          ).thenAnswer((_) async => Result.error(tException));
+
+          final result = await repository.deletePropertyAd(tAdId);
+
+          expect(result, isA<Error<void>>());
+          final error = (result as Error<void>).error;
+          expect(error.errorCode, 'ErrPropertyAdNotFound');
+          expect(error.statusCode, 404);
+        },
+      );
+
+      test(
+        'deve chamar service com token vazio quando token é nulo',
+        () async {
+          const tException = AppException(
+            errorCode: 'ErrMissingToken',
+            statusCode: 401,
+          );
+
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => null);
+          when(
+            () => mockService.deletePropertyAd(id: tAdId, token: ''),
+          ).thenAnswer((_) async => Result.error(tException));
+
+          final result = await repository.deletePropertyAd(tAdId);
+
+          expect(result, isA<Error<void>>());
+          expect((result as Error<void>).error.errorCode, 'ErrMissingToken');
+          verify(
+            () => mockService.deletePropertyAd(id: tAdId, token: ''),
+          ).called(1);
+        },
+      );
+
+      test(
+        'deve retornar erro ErrUnknown quando service falha com erro genérico',
+        () async {
+          const tException = AppException(errorCode: 'ErrUnknown');
+
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => tToken);
+          when(
+            () => mockService.deletePropertyAd(id: tAdId, token: tToken),
+          ).thenAnswer((_) async => Result.error(tException));
+
+          final result = await repository.deletePropertyAd(tAdId);
+
+          expect(result, isA<Error<void>>());
+          expect((result as Error<void>).error.errorCode, 'ErrUnknown');
+        },
+      );
+    });
   });
 }
