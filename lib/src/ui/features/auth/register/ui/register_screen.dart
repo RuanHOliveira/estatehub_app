@@ -105,7 +105,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                   ),
                   const SizedBox(height: 4),
-                  // Form
                   Form(
                     key: _formKey,
                     child: Column(

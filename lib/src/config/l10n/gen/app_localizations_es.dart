@@ -303,4 +303,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get exchangeRateButtonTooltip => 'Tipo de cambio';
+
+  @override
+  String get ads => 'Anuncios';
 }

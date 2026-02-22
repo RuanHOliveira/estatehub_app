@@ -375,5 +375,9 @@
     "exchangeRateButtonTooltip": "Cotação",
     "@exchangeRateButtonTooltip": {
         "description": "Tooltip do botão de cotação na home"
+    },
+    "ads": "Anúncios",
+    "@ads": {
+        "description": "Título ou rótulo para a seção de anúncios de imóveis"
     }
 }

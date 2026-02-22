@@ -664,6 +664,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Exchange Rate'**
   String get exchangeRateButtonTooltip;
+
+  /// Title or label for the property advertisements section
+  ///
+  /// In en, this message translates to:
+  /// **'Property Ads'**
+  String get ads;
 }
 
 class _AppLocalizationsDelegate

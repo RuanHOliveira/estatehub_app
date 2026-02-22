@@ -133,7 +133,6 @@ class _AppDrawer extends StatelessWidget {
             ),
           ),
 
-          // Navigation Items
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),

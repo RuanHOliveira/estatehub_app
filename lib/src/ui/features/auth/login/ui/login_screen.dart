@@ -75,14 +75,12 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Logo
                   Icon(
                     Icons.home_work_rounded,
                     size: deviceSize.width * 0.12,
                     color: cs.onPrimary,
                   ),
                   const SizedBox(height: 8),
-                  // Título
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: Text(
@@ -94,7 +92,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  // Form
                   Form(
                     key: _formKey,
                     child: Column(
@@ -123,7 +120,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   const SizedBox(height: 16.0),
-                  // Acessar
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ListenableBuilder(

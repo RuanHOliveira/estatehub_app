@@ -316,9 +316,45 @@ class _CreatePropertyAdScreenState extends State<CreatePropertyAdScreen> {
                           },
                         ),
 
+                        Row(
+                          children: [
+                            Expanded(
+                              flex: 2,
+                              child: CustomTextFormField(
+                                controller: _streetController,
+                                hintText: loc.createAdStreet,
+                                autovalidateMode:
+                                    AutovalidateMode.onUserInteraction,
+                                validator: (v) =>
+                                    _validators.requiredFieldValidator(
+                                      v,
+                                      loc.requiredField,
+                                    ),
+                              ),
+                            ),
+                            Expanded(
+                              child: CustomTextFormField(
+                                controller: _numberController,
+                                hintText: loc.createAdNumber,
+                                keyboardType: TextInputType.number,
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.digitsOnly,
+                                ],
+                                autovalidateMode:
+                                    AutovalidateMode.onUserInteraction,
+                                validator: (v) =>
+                                    _validators.requiredFieldValidator(
+                                      v,
+                                      loc.requiredField,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+
                         CustomTextFormField(
-                          controller: _streetController,
-                          hintText: loc.createAdStreet,
+                          controller: _neighborhoodController,
+                          hintText: loc.createAdNeighborhood,
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           validator: (v) => _validators.requiredFieldValidator(
                             v,
@@ -331,12 +367,8 @@ class _CreatePropertyAdScreenState extends State<CreatePropertyAdScreen> {
                             Expanded(
                               flex: 2,
                               child: CustomTextFormField(
-                                controller: _numberController,
-                                hintText: loc.createAdNumber,
-                                keyboardType: TextInputType.number,
-                                inputFormatters: [
-                                  FilteringTextInputFormatter.digitsOnly,
-                                ],
+                                controller: _cityController,
+                                hintText: loc.createAdCity,
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
                                 validator: (v) =>
@@ -364,26 +396,6 @@ class _CreatePropertyAdScreenState extends State<CreatePropertyAdScreen> {
                               ),
                             ),
                           ],
-                        ),
-
-                        CustomTextFormField(
-                          controller: _neighborhoodController,
-                          hintText: loc.createAdNeighborhood,
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          validator: (v) => _validators.requiredFieldValidator(
-                            v,
-                            loc.requiredField,
-                          ),
-                        ),
-
-                        CustomTextFormField(
-                          controller: _cityController,
-                          hintText: loc.createAdCity,
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          validator: (v) => _validators.requiredFieldValidator(
-                            v,
-                            loc.requiredField,
-                          ),
                         ),
 
                         CustomTextFormField(

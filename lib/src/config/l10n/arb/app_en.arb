@@ -375,5 +375,9 @@
     "exchangeRateButtonTooltip": "Exchange Rate",
     "@exchangeRateButtonTooltip": {
         "description": "Tooltip for the exchange rate button on the home screen"
+    },
+    "ads": "Property Ads",
+    "@ads": {
+        "description": "Title or label for the property advertisements section"
     }
 }

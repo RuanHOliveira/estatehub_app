@@ -283,13 +283,15 @@ Future<T?> showCustomGeneralDialog<T>(
                               const SizedBox(height: 18),
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Icon(Icons.info_outline_rounded, size: 20),
                                   const SizedBox(width: 5),
-                                  Expanded(
+                                  Flexible(
                                     child: Text(
                                       subMessage,
                                       textAlign: TextAlign.center,
+                                      softWrap: true,
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: cs.primary,

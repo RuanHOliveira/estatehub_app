@@ -34,6 +34,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
     showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
       backgroundColor: Theme.of(context).colorScheme.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
@@ -45,7 +46,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
         final bottomPadding = MediaQuery.of(ctx).padding.bottom;
         return Padding(
           padding: EdgeInsets.fromLTRB(16, 20, 16, 16 + bottomPadding),
-          child: ListView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Row(
                 children: [
@@ -185,7 +187,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 children: [
                   const SizedBox(height: 16),
 
-                  // Idioma
                   _SectionHeader(title: loc.language),
                   const SizedBox(height: 8),
                   _SettingsTile(

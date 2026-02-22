@@ -221,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
           physics: const BouncingScrollPhysics(),
           slivers: [
             CustomSliverAppBar(
-              title: loc.home,
+              title: loc.ads,
               showDrawerButton: true,
               showBackButton: false,
               actions: [
@@ -291,7 +291,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   final cardWidth =
                       (width - 32 - (crossAxisCount - 1) * spacing) /
                       crossAxisCount;
-                  final mainAxisExtent = cardWidth * 9 / 16 + 140.0;
+                  final mainAxisExtent = cardWidth * 9 / 16 + 160.0;
 
                   return SliverPadding(
                     padding: const EdgeInsets.fromLTRB(16, 4, 16, 24),

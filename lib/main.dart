@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:estatehub_app/src/config/providers/app_providers.dart';
 import 'package:estatehub_app/src/core/app/estatehub_app.dart';
@@ -8,10 +9,27 @@ import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:lucid_validation/lucid_validation.dart';
 import 'package:provider/provider.dart';
+import 'package:window_manager/window_manager.dart';
 
 void main() async {
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
+    await windowManager.ensureInitialized();
+
+    if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+      const Size minimumSize = Size(800, 600);
+
+      WindowOptions windowOptions = WindowOptions(
+        size: minimumSize,
+        minimumSize: minimumSize,
+        center: true,
+      );
+
+      windowManager.waitUntilReadyToShow(windowOptions, () async {
+        await windowManager.show();
+        await windowManager.focus();
+      });
+    }
 
     await dotenv.load(fileName: ".env");
 

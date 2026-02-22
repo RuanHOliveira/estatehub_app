@@ -22,7 +22,6 @@ class PasswordFormField extends StatefulWidget {
 }
 
 class _PasswordFormFieldState extends State<PasswordFormField> {
-  // Custom Password Form Field
   bool isHidden = true;
 
   @override

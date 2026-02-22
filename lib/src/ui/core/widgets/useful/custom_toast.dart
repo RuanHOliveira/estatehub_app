@@ -29,8 +29,8 @@ class CustomToast {
     }
 
     BotToast.showCustomNotification(
-      onlyOne: true, // Mantém somente uma notificação por vez
-      enableSlideOff: true, // Habilita deslizar para fechar
+      onlyOne: true,
+      enableSlideOff: true,
       dismissDirections: [DismissDirection.horizontal, DismissDirection.up],
       duration: const Duration(seconds: 4),
       toastBuilder: (cancelFunc) {

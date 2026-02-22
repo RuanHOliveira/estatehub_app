@@ -375,5 +375,9 @@
     "exchangeRateButtonTooltip": "Tipo de cambio",
     "@exchangeRateButtonTooltip": {
         "description": "Tooltip del botón de tipo de cambio en la pantalla de inicio"
+    },
+    "ads": "Anuncios",
+    "@ads": {
+        "description": "Título o etiqueta para la sección de anuncios de propiedades"
     }
 }
