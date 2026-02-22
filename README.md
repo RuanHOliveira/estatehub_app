@@ -6,7 +6,7 @@ Cliente Flutter da plataforma imobiliária EstateHub. Permite cadastrar, autenti
 
 ---
 
-## ⚠️ Dependência de Backend
+## Dependência de Backend
 
 **Esta aplicação não é standalone.** Toda a funcionalidade principal depende do serviço de backend [`estatehub_api`](../estatehub_api).
 
