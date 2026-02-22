@@ -1,0 +1,195 @@
+{
+    "@@locale": "en",
+    "errUnknown": "An unexpected error occurred.",
+    "@errUnknown": {
+        "description": "Generic unknown error returned by the API."
+    },
+    "errMissingToken": "Session expired. Please log in again.",
+    "@errMissingToken": {
+        "description": "Authentication token not provided."
+    },
+    "errInvalidToken": "Invalid session. Please log in again.",
+    "@errInvalidToken": {
+        "description": "Authentication token is invalid or expired."
+    },
+    "errInvalidRequest": "Invalid request.",
+    "@errInvalidRequest": {
+        "description": "Malformed or invalid request payload."
+    },
+    "errEmailAlreadyUsed": "This email is already in use.",
+    "@errEmailAlreadyUsed": {
+        "description": "Attempt to register with an existing email."
+    },
+    "errUserNotFound": "User not found.",
+    "@errUserNotFound": {
+        "description": "User does not exist."
+    },
+    "errInvalidCredentials": "Invalid email or password.",
+    "@errInvalidCredentials": {
+        "description": "Login credentials are incorrect."
+    },
+    "errInvalidCEP": "Invalid ZIP code.",
+    "@errInvalidCEP": {
+        "description": "ZIP code format is invalid."
+    },
+    "errCEPNotFound": "ZIP code not found.",
+    "@errCEPNotFound": {
+        "description": "ZIP code not found in ViaCEP."
+    },
+    "errExternalServiceFailure": "External service unavailable. Please try again.",
+    "@errExternalServiceFailure": {
+        "description": "Failed to communicate with external service."
+    },
+    "errInvalidExternalResponse": "Invalid response from external service.",
+    "@errInvalidExternalResponse": {
+        "description": "Unable to parse response from external service."
+    },
+    "errExternalBadRequest": "Request rejected by external service.",
+    "@errExternalBadRequest": {
+        "description": "External service returned HTTP 400."
+    },
+    "errInvalidAdType": "Invalid ad type.",
+    "@errInvalidAdType": {
+        "description": "Ad type is not SALE or RENT."
+    },
+    "errInvalidPrice": "Invalid price. Must be greater than zero.",
+    "@errInvalidPrice": {
+        "description": "Ad price is zero or negative."
+    },
+    "errMissingAddressField": "Please fill in all required address fields.",
+    "@errMissingAddressField": {
+        "description": "Required address field is missing."
+    },
+    "errInvalidImageType": "Invalid image format. Use JPG or PNG.",
+    "@errInvalidImageType": {
+        "description": "Uploaded image type is not allowed."
+    },
+    "errImageTooLarge": "Image too large. Maximum size is 5MB.",
+    "@errImageTooLarge": {
+        "description": "Uploaded image exceeds allowed size."
+    },
+    "errPropertyAdNotFound": "Property ad not found.",
+    "@errPropertyAdNotFound": {
+        "description": "Ad does not exist or was already removed."
+    },
+    "errInvalidRate": "Invalid exchange rate.",
+    "@errInvalidRate": {
+        "description": "Exchange rate must be greater than zero."
+    },
+    "signIn": "Sign In",
+    "@signIn": {
+        "description": "Text displayed on the login button"
+    },
+    "signUp": "Sign Up",
+    "@signUp": {
+        "description": "Text for the button to create an account"
+    },
+    "email": "Email",
+    "@email": {
+        "description": "Label for the email input field"
+    },
+    "requiredField": "This field is required!",
+    "@requiredField": {
+        "description": "Message displayed when a required field is empty"
+    },
+    "invalidName": "Invalid name!",
+    "@invalidName": {
+        "description": "Message displayed when the name is invalid"
+    },
+    "invalidEmail": "Invalid email!",
+    "@invalidEmail": {
+        "description": "Message displayed when the email is invalid"
+    },
+    "invalidPassword": "Invalid password!",
+    "@invalidPassword": {
+        "description": "Message displayed when the password is invalid"
+    },
+    "passwordMinLength": "Password must contain at least 8 characters.",
+    "@passwordMinLength": {
+        "description": "Validation for minimum password length"
+    },
+    "passwordLowercase": "Password must contain at least 1 lowercase letter.",
+    "@passwordLowercase": {
+        "description": "Validation for lowercase letter"
+    },
+    "passwordUppercase": "Password must contain at least 1 uppercase letter.",
+    "@passwordUppercase": {
+        "description": "Validation for uppercase letter"
+    },
+    "passwordNumber": "Password must contain at least 1 number.",
+    "@passwordNumber": {
+        "description": "Validation for number"
+    },
+    "passwordSpecialChar": "Password must contain at least 1 special character (e.g., ?, !, @).",
+    "@passwordSpecialChar": {
+        "description": "Validation for special character"
+    },
+    "passwordMismatch": "Passwords do not match!",
+    "@passwordMismatch": {
+        "description": "Message displayed when passwords do not match"
+    },
+    "password": "Password",
+    "@password": {
+        "description": "Label for the password field"
+    },
+    "name": "Name",
+    "@name": {
+        "description": "Label for the name field"
+    },
+    "confirmEmail": "Confirm email",
+    "@confirmEmail": {
+        "description": "Label for email confirmation field"
+    },
+    "confirmPassword": "Confirm password",
+    "@confirmPassword": {
+        "description": "Label for password confirmation field"
+    },
+    "alreadyHaveAccount": "Already have an account?",
+    "@alreadyHaveAccount": {
+        "description": "Text for users who already have an account"
+    },
+    "dontHaveAccount": "Don't have an account?",
+    "@dontHaveAccount": {
+        "description": "Text for users who do not have an account yet"
+    },
+    "registerNow": "Register now",
+    "@registerNow": {
+        "description": "Call to action to create a new account"
+    },
+    "settings": "Settings",
+    "@settings": {
+        "description": "Label displayed for the settings section"
+    },
+    "logout": "Log out",
+    "@logout": {
+        "description": "Button or action to log the user out"
+    },
+    "registerYourAccount": "Create your account",
+    "@registerYourAccount": {
+        "description": "Text prompting the user to register their account"
+    },
+    "registrationCompleted": "Registration completed",
+    "@registrationCompleted": {
+        "description": "Message shown when the user's registration has been successfully completed"
+    },
+    "about": "About",
+    "@about": {
+        "description": "Label for the about section"
+    },
+    "version": "Version",
+    "@version": {
+        "description": "Label for the app version"
+    },
+    "language": "Language",
+    "@language": {
+        "description": "Label for selecting or displaying the app language"
+    },
+    "changeAppLanguage": "Change the app language",
+    "@changeAppLanguage": {
+        "description": "Subtitle for the language settings option"
+    },
+    "home": "Home",
+    "@home": {
+        "description": "Home navigation item"
+    }
+}

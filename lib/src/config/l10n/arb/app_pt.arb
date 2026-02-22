@@ -1,0 +1,195 @@
+{
+    "@@locale": "pt",
+    "errUnknown": "Ocorreu um erro inesperado.",
+    "@errUnknown": {
+        "description": "Erro genérico desconhecido devolvido pela API."
+    },
+    "errMissingToken": "Sessão expirada. Inicie sessão novamente.",
+    "@errMissingToken": {
+        "description": "Token de autenticação não enviado na requisição."
+    },
+    "errInvalidToken": "Sessão inválida. Inicie sessão novamente.",
+    "@errInvalidToken": {
+        "description": "Token de autenticação inválido ou expirado."
+    },
+    "errInvalidRequest": "Pedido inválido.",
+    "@errInvalidRequest": {
+        "description": "Estrutura ou dados do pedido incorretos."
+    },
+    "errEmailAlreadyUsed": "Este e-mail já está em utilização.",
+    "@errEmailAlreadyUsed": {
+        "description": "Tentativa de registo com e-mail já existente."
+    },
+    "errUserNotFound": "Utilizador não encontrado.",
+    "@errUserNotFound": {
+        "description": "O utilizador não existe na base de dados."
+    },
+    "errInvalidCredentials": "E-mail ou palavra-passe incorretos.",
+    "@errInvalidCredentials": {
+        "description": "Credenciais inválidas no início de sessão."
+    },
+    "errInvalidCEP": "Código postal inválido.",
+    "@errInvalidCEP": {
+        "description": "Formato do código postal incorreto."
+    },
+    "errCEPNotFound": "Código postal não encontrado.",
+    "@errCEPNotFound": {
+        "description": "Código postal não encontrado na base do ViaCEP."
+    },
+    "errExternalServiceFailure": "Serviço externo indisponível. Tente novamente.",
+    "@errExternalServiceFailure": {
+        "description": "Falha na comunicação com serviço externo."
+    },
+    "errInvalidExternalResponse": "Resposta inválida do serviço externo.",
+    "@errInvalidExternalResponse": {
+        "description": "Não foi possível interpretar a resposta do serviço externo."
+    },
+    "errExternalBadRequest": "Pedido rejeitado pelo serviço externo.",
+    "@errExternalBadRequest": {
+        "description": "Serviço externo devolveu erro 400."
+    },
+    "errInvalidAdType": "Tipo de anúncio inválido.",
+    "@errInvalidAdType": {
+        "description": "Tipo diferente de SALE ou RENT."
+    },
+    "errInvalidPrice": "Preço inválido. Deve ser superior a zero.",
+    "@errInvalidPrice": {
+        "description": "Preço do anúncio menor ou igual a zero."
+    },
+    "errMissingAddressField": "Preencha todos os campos obrigatórios da morada.",
+    "@errMissingAddressField": {
+        "description": "Campo obrigatório da morada não informado."
+    },
+    "errInvalidImageType": "Formato de imagem inválido. Utilize JPG ou PNG.",
+    "@errInvalidImageType": {
+        "description": "Upload de imagem com tipo não permitido."
+    },
+    "errImageTooLarge": "Imagem demasiado grande. Máximo de 5MB.",
+    "@errImageTooLarge": {
+        "description": "Imagem excede o tamanho permitido."
+    },
+    "errPropertyAdNotFound": "Anúncio não encontrado.",
+    "@errPropertyAdNotFound": {
+        "description": "Anúncio inexistente ou já removido."
+    },
+    "errInvalidRate": "Taxa de câmbio inválida.",
+    "@errInvalidRate": {
+        "description": "Taxa de câmbio deve ser superior a zero."
+    },
+    "signIn": "Iniciar sessão",
+    "@signIn": {
+        "description": "Texto exibido no botão de login"
+    },
+    "signUp": "Registar",
+    "@signUp": {
+        "description": "Texto do botão para criar uma conta"
+    },
+    "email": "E-mail",
+    "@email": {
+        "description": "Rótulo para o campo de entrada de e-mail"
+    },
+    "requiredField": "Campo obrigatório!",
+    "@requiredField": {
+        "description": "Mensagem exibida quando um campo obrigatório está vazio"
+    },
+    "invalidName": "Nome inválido!",
+    "@invalidName": {
+        "description": "Mensagem exibida quando o nome é inválido"
+    },
+    "invalidEmail": "E-mail inválido!",
+    "@invalidEmail": {
+        "description": "Mensagem exibida quando o email é inválido"
+    },
+    "invalidPassword": "Palavra-passe inválida!",
+    "@invalidPassword": {
+        "description": "Mensagem exibida quando a palavra-passe é inválida"
+    },
+    "passwordMinLength": "A palavra-passe deve conter pelo menos 8 caracteres.",
+    "@passwordMinLength": {
+        "description": "Validação para tamanho mínimo da palavra-passe"
+    },
+    "passwordLowercase": "A palavra-passe deve conter pelo menos 1 letra minúscula.",
+    "@passwordLowercase": {
+        "description": "Validação para conter letra minúscula"
+    },
+    "passwordUppercase": "A palavra-passe deve conter pelo menos 1 letra maiúscula.",
+    "@passwordUppercase": {
+        "description": "Validação para conter letra maiúscula"
+    },
+    "passwordNumber": "A palavra-passe deve conter pelo menos 1 número.",
+    "@passwordNumber": {
+        "description": "Validação para conter número"
+    },
+    "passwordSpecialChar": "A palavra-passe deve conter pelo menos 1 carácter especial (ex: ?, !, @).",
+    "@passwordSpecialChar": {
+        "description": "Validação para conter carácter especial"
+    },
+    "passwordMismatch": "As palavras-passe não coincidem!",
+    "@passwordMismatch": {
+        "description": "Mensagem exibida quando as palavras-passe não coincidem"
+    },
+    "password": "Palavra-passe",
+    "@password": {
+        "description": "Rótulo para o campo de palavra-passe"
+    },
+    "name": "Nome",
+    "@name": {
+        "description": "Rótulo para o campo de nome"
+    },
+    "confirmEmail": "Confirme o e-mail",
+    "@confirmEmail": {
+        "description": "Rótulo para o campo de confirmação de e-mail"
+    },
+    "confirmPassword": "Confirme a palavra-passe",
+    "@confirmPassword": {
+        "description": "Rótulo para o campo de confirmação de palavra-passe"
+    },
+    "alreadyHaveAccount": "Já tem conta?",
+    "@alreadyHaveAccount": {
+        "description": "Texto para utilizadores que já têm conta"
+    },
+    "dontHaveAccount": "Ainda não tem conta?",
+    "@dontHaveAccount": {
+        "description": "Texto para utilizadores que ainda não criaram conta"
+    },
+    "registerNow": "Registe-se agora",
+    "@registerNow": {
+        "description": "Botão ou texto para criar uma nova conta"
+    },
+    "settings": "Definições",
+    "@settings": {
+        "description": "Rótulo exibido para a secção de definições da aplicação"
+    },
+    "logout": "Terminar sessão",
+    "@logout": {
+        "description": "Botão ou ação para desconectar o utilizador"
+    },
+    "registerYourAccount": "Registe a sua conta",
+    "@registerYourAccount": {
+        "description": "Texto exibido para incentivar o utilizador a criar conta"
+    },
+    "registrationCompleted": "Registo concluído",
+    "@registrationCompleted": {
+        "description": "Message shown when the user's registration has been successfully completed"
+    },
+    "about": "Sobre",
+    "@about": {
+        "description": "Label for the about section"
+    },
+    "version": "Versão",
+    "@version": {
+        "description": "Label for the app version"
+    },
+    "language": "Idioma",
+    "@language": {
+        "description": "Label for selecting or displaying the app language"
+    },
+    "changeAppLanguage": "Alterar o idioma da aplicação",
+    "@changeAppLanguage": {
+        "description": "Legenda para a opção de idioma nas definições"
+    },
+    "home": "Início",
+    "@home": {
+        "description": "Home navigation item"
+    }
+}

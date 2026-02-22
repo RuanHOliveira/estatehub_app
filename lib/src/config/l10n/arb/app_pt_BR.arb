@@ -1,0 +1,195 @@
+{
+    "@@locale": "pt_BR",
+    "errUnknown": "Ocorreu um erro inesperado.",
+    "@errUnknown": {
+        "description": "Erro genérico desconhecido retornado pela API."
+    },
+    "errMissingToken": "Sessão expirada. Faça login novamente.",
+    "@errMissingToken": {
+        "description": "Token de autenticação não enviado na requisição."
+    },
+    "errInvalidToken": "Sessão inválida. Faça login novamente.",
+    "@errInvalidToken": {
+        "description": "Token de autenticação inválido ou expirado."
+    },
+    "errInvalidRequest": "Requisição inválida.",
+    "@errInvalidRequest": {
+        "description": "Payload ou estrutura da requisição está incorreta."
+    },
+    "errEmailAlreadyUsed": "Este e-mail já está em uso.",
+    "@errEmailAlreadyUsed": {
+        "description": "Tentativa de cadastro com e-mail já registrado."
+    },
+    "errUserNotFound": "Usuário não encontrado.",
+    "@errUserNotFound": {
+        "description": "Usuário não existe na base de dados."
+    },
+    "errInvalidCredentials": "E-mail ou senha incorretos.",
+    "@errInvalidCredentials": {
+        "description": "Credenciais inválidas no login."
+    },
+    "errInvalidCEP": "CEP inválido.",
+    "@errInvalidCEP": {
+        "description": "CEP informado possui formato incorreto."
+    },
+    "errCEPNotFound": "CEP não encontrado.",
+    "@errCEPNotFound": {
+        "description": "CEP não encontrado na base do ViaCEP."
+    },
+    "errExternalServiceFailure": "Serviço externo indisponível. Tente novamente.",
+    "@errExternalServiceFailure": {
+        "description": "Falha ao comunicar com serviço externo."
+    },
+    "errInvalidExternalResponse": "Resposta inválida do serviço externo.",
+    "@errInvalidExternalResponse": {
+        "description": "Não foi possível interpretar a resposta do serviço externo."
+    },
+    "errExternalBadRequest": "Requisição rejeitada pelo serviço externo.",
+    "@errExternalBadRequest": {
+        "description": "Serviço externo retornou erro 400."
+    },
+    "errInvalidAdType": "Tipo de anúncio inválido.",
+    "@errInvalidAdType": {
+        "description": "Tipo do anúncio diferente de SALE ou RENT."
+    },
+    "errInvalidPrice": "Preço inválido. Informe um valor maior que zero.",
+    "@errInvalidPrice": {
+        "description": "Preço do anúncio menor ou igual a zero."
+    },
+    "errMissingAddressField": "Preencha todos os campos obrigatórios do endereço.",
+    "@errMissingAddressField": {
+        "description": "Campo obrigatório do endereço não informado."
+    },
+    "errInvalidImageType": "Formato de imagem inválido. Use JPG ou PNG.",
+    "@errInvalidImageType": {
+        "description": "Upload de imagem com tipo não permitido."
+    },
+    "errImageTooLarge": "Imagem muito grande. Máximo de 5MB.",
+    "@errImageTooLarge": {
+        "description": "Imagem excede o tamanho permitido."
+    },
+    "errPropertyAdNotFound": "Anúncio não encontrado.",
+    "@errPropertyAdNotFound": {
+        "description": "Anúncio inexistente ou já removido."
+    },
+    "errInvalidRate": "Taxa de câmbio inválida.",
+    "@errInvalidRate": {
+        "description": "Taxa de câmbio menor ou igual a zero."
+    },
+    "signIn": "Entrar",
+    "@signIn": {
+        "description": "Texto exibido no botão de login"
+    },
+    "signUp": "Cadastrar",
+    "@signUp": {
+        "description": "Texto do botão para criar uma conta"
+    },
+    "email": "E-mail",
+    "@email": {
+        "description": "Rótulo para o campo de entrada de e-mail"
+    },
+    "requiredField": "Campo obrigatório!",
+    "@requiredField": {
+        "description": "Mensagem exibida quando um campo obrigatório está vazio"
+    },
+    "invalidName": "Nome inválido!",
+    "@invalidName": {
+        "description": "Mensagem exibida quando o nome é inválido"
+    },
+    "invalidEmail": "Email inválido!",
+    "@invalidEmail": {
+        "description": "Mensagem exibida quando o email é inválido"
+    },
+    "invalidPassword": "Senha inválida!",
+    "@invalidPassword": {
+        "description": "Mensagem exibida quando a senha é inválida"
+    },
+    "passwordMinLength": "Senha deve conter no mínimo 8 dígitos.",
+    "@passwordMinLength": {
+        "description": "Validação para tamanho mínimo da senha"
+    },
+    "passwordLowercase": "Senha deve conter no mínimo 1 dígito minúsculo.",
+    "@passwordLowercase": {
+        "description": "Validação para conter letra minúscula"
+    },
+    "passwordUppercase": "Senha deve conter no mínimo 1 dígito maiúsculo.",
+    "@passwordUppercase": {
+        "description": "Validação para conter letra maiúscula"
+    },
+    "passwordNumber": "Senha deve conter no mínimo 1 dígito numérico.",
+    "@passwordNumber": {
+        "description": "Validação para conter número"
+    },
+    "passwordSpecialChar": "Senha deve conter no mínimo 1 caractere especial (Ex: ?, !, @).",
+    "@passwordSpecialChar": {
+        "description": "Validação para conter caractere especial"
+    },
+    "passwordMismatch": "Senhas diferentes!",
+    "@passwordMismatch": {
+        "description": "Mensagem exibida quando as senhas não coincidem"
+    },
+    "password": "Senha",
+    "@password": {
+        "description": "Rótulo para o campo de senha"
+    },
+    "name": "Nome",
+    "@name": {
+        "description": "Rótulo para o campo de nome"
+    },
+    "confirmEmail": "Confirme o email",
+    "@confirmEmail": {
+        "description": "Rótulo para o campo de confirmação de email"
+    },
+    "confirmPassword": "Confirme a senha",
+    "@confirmPassword": {
+        "description": "Rótulo para o campo de confirmação de senha"
+    },
+    "alreadyHaveAccount": "Já possui uma conta?",
+    "@alreadyHaveAccount": {
+        "description": "Texto para usuários que já têm conta"
+    },
+    "dontHaveAccount": "Não possui uma conta?",
+    "@dontHaveAccount": {
+        "description": "Texto para usuários que ainda não criaram uma conta"
+    },
+    "registerNow": "Cadastre-se agora",
+    "@registerNow": {
+        "description": "Botão ou texto de chamada para o usuário realizar um novo cadastro."
+    },
+    "settings": "Configurações",
+    "@settings": {
+        "description": "Rótulo exibido para a seção de configurações do aplicativo"
+    },
+    "logout": "Sair",
+    "@logout": {
+        "description": "Botão ou ação para desconectar o usuário do aplicativo"
+    },
+    "registerYourAccount": "Cadastre sua conta",
+    "@registerYourAccount": {
+        "description": "Text shown to prompt the user to register their account"
+    },
+    "registrationCompleted": "Cadastro concluído",
+    "@registrationCompleted": {
+        "description": "Message shown when the user's registration has been successfully completed"
+    },
+    "about": "Sobre",
+    "@about": {
+        "description": "Label for the about section"
+    },
+    "version": "Versão",
+    "@version": {
+        "description": "Label for the app version"
+    },
+    "language": "Idioma",
+    "@language": {
+        "description": "Label for selecting or displaying the app language"
+    },
+    "changeAppLanguage": "Alterar o idioma do aplicativo",
+    "@changeAppLanguage": {
+        "description": "Subtítulo para a opção de idioma nas configurações"
+    },
+    "home": "Início",
+    "@home": {
+        "description": "Home navigation item"
+    }
+}
