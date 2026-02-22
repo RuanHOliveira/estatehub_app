@@ -46,124 +46,120 @@ class _SettingsScreenState extends State<SettingsScreen> {
         return Padding(
           padding: EdgeInsets.fromLTRB(16, 20, 16, 16 + bottomPadding),
           child: ListView(
-              children: [
-                Row(
-                  children: [
-                    const SizedBox(width: 40),
-                    Expanded(
-                      child: Text(
-                        loc.language,
-                        textAlign: TextAlign.center,
-                        style: AppTextStyles.textBold16.copyWith(
-                          color: cs.inversePrimary,
-                        ),
+            children: [
+              Row(
+                children: [
+                  const SizedBox(width: 40),
+                  Expanded(
+                    child: Text(
+                      loc.language,
+                      textAlign: TextAlign.center,
+                      style: AppTextStyles.textBold16.copyWith(
+                        color: cs.inversePrimary,
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () => Navigator.pop(ctx),
-                      child: Container(
-                        width: 40,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          color: cs.secondary,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Icon(
-                          Icons.close_rounded,
-                          size: 20,
-                          color: cs.inversePrimary,
-                        ),
+                  ),
+                  GestureDetector(
+                    onTap: () => Navigator.pop(ctx),
+                    child: Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: cs.secondary,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Icon(
+                        Icons.close_rounded,
+                        size: 20,
+                        color: cs.inversePrimary,
                       ),
                     ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                ...kSupportedLocales.map((locale) {
-                  final isSelected =
-                      locale.languageCode == currentLocale.languageCode &&
-                      (locale.countryCode ?? '') ==
-                          (currentLocale.countryCode ?? '');
-                  final initials = _localeInitials(locale);
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              ...kSupportedLocales.map((locale) {
+                final isSelected =
+                    locale.languageCode == currentLocale.languageCode &&
+                    (locale.countryCode ?? '') ==
+                        (currentLocale.countryCode ?? '');
+                final initials = _localeInitials(locale);
 
-                  return Container(
-                    margin: const EdgeInsets.only(bottom: 8),
-                    child: Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        onTap: () {
-                          setAppLocale(context, locale);
-                          Navigator.pop(ctx);
-                        },
-                        borderRadius: BorderRadius.circular(16),
-                        child: AnimatedContainer(
-                          duration: const Duration(milliseconds: 200),
-                          curve: Curves.easeOut,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 14,
-                          ),
-                          decoration: BoxDecoration(
-                            color: isSelected
-                                ? cs.secondary
-                                : Colors.transparent,
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Row(
-                            children: [
-                              AnimatedContainer(
-                                duration: const Duration(milliseconds: 200),
-                                width: 36,
-                                height: 36,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
+                return Container(
+                  margin: const EdgeInsets.only(bottom: 8),
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () {
+                        setAppLocale(context, locale);
+                        Navigator.pop(ctx);
+                      },
+                      borderRadius: BorderRadius.circular(16),
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 200),
+                        curve: Curves.easeOut,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 14,
+                        ),
+                        decoration: BoxDecoration(
+                          color: isSelected ? cs.secondary : Colors.transparent,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Row(
+                          children: [
+                            AnimatedContainer(
+                              duration: const Duration(milliseconds: 200),
+                              width: 36,
+                              height: 36,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: isSelected
+                                    ? cs.inversePrimary
+                                    : Colors.transparent,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Text(
+                                initials,
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w800,
+                                  color: isSelected ? cs.secondary : cs.primary,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            Expanded(
+                              child: Text(
+                                localeLabel(locale),
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: isSelected
+                                      ? FontWeight.w700
+                                      : FontWeight.w500,
                                   color: isSelected
                                       ? cs.inversePrimary
-                                      : Colors.transparent,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Text(
-                                  initials,
-                                  style: TextStyle(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w800,
-                                    color: isSelected
-                                        ? cs.secondary
-                                        : cs.primary,
-                                  ),
+                                      : cs.inversePrimary.withValues(
+                                          alpha: 0.8,
+                                        ),
                                 ),
                               ),
-                              const SizedBox(width: 16),
-                              Expanded(
-                                child: Text(
-                                  localeLabel(locale),
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: isSelected
-                                        ? FontWeight.w700
-                                        : FontWeight.w500,
-                                    color: isSelected
-                                        ? cs.inversePrimary
-                                        : cs.inversePrimary.withValues(
-                                            alpha: 0.8,
-                                          ),
-                                  ),
-                                ),
+                            ),
+                            if (isSelected)
+                              Icon(
+                                Icons.check_rounded,
+                                size: 20,
+                                color: cs.inversePrimary,
                               ),
-                              if (isSelected)
-                                Icon(
-                                  Icons.check_rounded,
-                                  size: 20,
-                                  color: cs.inversePrimary,
-                                ),
-                            ],
-                          ),
+                          ],
                         ),
                       ),
                     ),
-                  );
-                }),
-              ],
-            ),
+                  ),
+                );
+              }),
+            ],
+          ),
         );
       },
     );
@@ -293,41 +289,6 @@ class _SettingsTile extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class _InfoTile extends StatelessWidget {
-  final String title;
-  final String subtitle;
-
-  const _InfoTile({required this.title, required this.subtitle});
-
-  @override
-  Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
-
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: cs.secondary,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: AppTextStyles.textBold14.copyWith(color: cs.inversePrimary),
-          ),
-          Text(
-            subtitle,
-            style: AppTextStyles.text14.copyWith(
-              color: cs.primary.withValues(alpha: 0.6),
-            ),
-          ),
-        ],
       ),
     );
   }

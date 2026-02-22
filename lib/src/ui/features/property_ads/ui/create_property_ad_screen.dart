@@ -333,6 +333,10 @@ class _CreatePropertyAdScreenState extends State<CreatePropertyAdScreen> {
                               child: CustomTextFormField(
                                 controller: _numberController,
                                 hintText: loc.createAdNumber,
+                                keyboardType: TextInputType.number,
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.digitsOnly,
+                                ],
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
                                 validator: (v) =>
