@@ -14,9 +14,10 @@ import 'package:window_manager/window_manager.dart';
 void main() async {
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    await windowManager.ensureInitialized();
 
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+      await windowManager.ensureInitialized();
+
       const Size minimumSize = Size(800, 600);
 
       WindowOptions windowOptions = WindowOptions(
