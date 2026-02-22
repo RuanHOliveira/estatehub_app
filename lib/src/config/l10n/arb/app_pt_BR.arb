@@ -247,5 +247,101 @@
     "deleteAdDialogCancel": "Cancelar",
     "@deleteAdDialogCancel": {
         "description": "Rótulo do botão de cancelamento no diálogo de exclusão"
+    },
+    "createAdTitle": "Criar Anúncio",
+    "@createAdTitle": {
+        "description": "Título da tela de criação de anúncio"
+    },
+    "createAdSectionDetails": "Detalhes do Anúncio",
+    "@createAdSectionDetails": {
+        "description": "Cabeçalho da seção de tipo e preço"
+    },
+    "createAdType": "Tipo",
+    "@createAdType": {
+        "description": "Rótulo do seletor de tipo (Venda ou Aluguel)"
+    },
+    "createAdSale": "Venda",
+    "@createAdSale": {
+        "description": "Rótulo do chip de Venda"
+    },
+    "createAdRent": "Aluguel",
+    "@createAdRent": {
+        "description": "Rótulo do chip de Aluguel"
+    },
+    "createAdPrice": "Preço (BRL)",
+    "@createAdPrice": {
+        "description": "Rótulo do campo de preço"
+    },
+    "createAdPriceHint": "ex: 450000.00",
+    "@createAdPriceHint": {
+        "description": "Dica para o campo de preço"
+    },
+    "createAdInvalidPrice": "Informe um preço válido maior que zero",
+    "@createAdInvalidPrice": {
+        "description": "Mensagem de validação para preço inválido"
+    },
+    "createAdSectionAddress": "Endereço",
+    "@createAdSectionAddress": {
+        "description": "Cabeçalho da seção de endereço"
+    },
+    "createAdZipCode": "CEP",
+    "@createAdZipCode": {
+        "description": "Rótulo do campo de CEP"
+    },
+    "createAdInvalidZip": "Informe um CEP válido com 8 dígitos",
+    "@createAdInvalidZip": {
+        "description": "Mensagem de validação para CEP inválido"
+    },
+    "createAdStreet": "Logradouro",
+    "@createAdStreet": {
+        "description": "Rótulo do campo de logradouro"
+    },
+    "createAdNumber": "Número",
+    "@createAdNumber": {
+        "description": "Rótulo do campo de número"
+    },
+    "createAdNeighborhood": "Bairro",
+    "@createAdNeighborhood": {
+        "description": "Rótulo do campo de bairro"
+    },
+    "createAdCity": "Cidade",
+    "@createAdCity": {
+        "description": "Rótulo do campo de cidade"
+    },
+    "createAdState": "Estado (UF)",
+    "@createAdState": {
+        "description": "Rótulo do campo de estado/UF"
+    },
+    "createAdComplement": "Complemento",
+    "@createAdComplement": {
+        "description": "Rótulo do campo de complemento"
+    },
+    "createAdComplementHint": "Apto, sala, etc. (opcional)",
+    "@createAdComplementHint": {
+        "description": "Dica para o campo de complemento"
+    },
+    "createAdSectionImage": "Imagem do Imóvel",
+    "@createAdSectionImage": {
+        "description": "Cabeçalho da seção de imagem"
+    },
+    "createAdAddImage": "Toque para adicionar uma imagem",
+    "@createAdAddImage": {
+        "description": "Texto exibido quando nenhuma imagem está selecionada"
+    },
+    "createAdChangeImage": "Toque para trocar a imagem",
+    "@createAdChangeImage": {
+        "description": "Texto exibido quando uma imagem já está selecionada"
+    },
+    "createAdImageHint": "JPEG ou PNG, máx. 5MB",
+    "@createAdImageHint": {
+        "description": "Dica com restrições de formato e tamanho da imagem"
+    },
+    "createAdSubmit": "Publicar Anúncio",
+    "@createAdSubmit": {
+        "description": "Rótulo do botão de envio na tela de criação"
+    },
+    "createAdSuccess": "Anúncio publicado com sucesso!",
+    "@createAdSuccess": {
+        "description": "Toast exibido após criar o anúncio com sucesso"
     }
 }

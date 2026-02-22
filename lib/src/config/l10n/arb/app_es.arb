@@ -247,5 +247,101 @@
     "deleteAdDialogCancel": "Cancelar",
     "@deleteAdDialogCancel": {
         "description": "Etiqueta del botón de cancelar en el diálogo de eliminación"
+    },
+    "createAdTitle": "Crear Anuncio",
+    "@createAdTitle": {
+        "description": "Título de la pantalla de creación de anuncio"
+    },
+    "createAdSectionDetails": "Detalles del Anuncio",
+    "@createAdSectionDetails": {
+        "description": "Encabezado de la sección de tipo y precio"
+    },
+    "createAdType": "Tipo",
+    "@createAdType": {
+        "description": "Etiqueta del selector de tipo (Venta o Alquiler)"
+    },
+    "createAdSale": "Venta",
+    "@createAdSale": {
+        "description": "Etiqueta del chip de Venta"
+    },
+    "createAdRent": "Alquiler",
+    "@createAdRent": {
+        "description": "Etiqueta del chip de Alquiler"
+    },
+    "createAdPrice": "Precio (BRL)",
+    "@createAdPrice": {
+        "description": "Etiqueta del campo de precio"
+    },
+    "createAdPriceHint": "ej: 450000.00",
+    "@createAdPriceHint": {
+        "description": "Texto de ayuda para el campo de precio"
+    },
+    "createAdInvalidPrice": "Ingrese un precio válido mayor que cero",
+    "@createAdInvalidPrice": {
+        "description": "Mensaje de validación para precio inválido"
+    },
+    "createAdSectionAddress": "Dirección",
+    "@createAdSectionAddress": {
+        "description": "Encabezado de la sección de dirección"
+    },
+    "createAdZipCode": "Código Postal",
+    "@createAdZipCode": {
+        "description": "Etiqueta del campo de código postal"
+    },
+    "createAdInvalidZip": "Ingrese un código postal válido de 8 dígitos",
+    "@createAdInvalidZip": {
+        "description": "Mensaje de validación para código postal inválido"
+    },
+    "createAdStreet": "Calle",
+    "@createAdStreet": {
+        "description": "Etiqueta del campo de calle"
+    },
+    "createAdNumber": "Número",
+    "@createAdNumber": {
+        "description": "Etiqueta del campo de número"
+    },
+    "createAdNeighborhood": "Barrio",
+    "@createAdNeighborhood": {
+        "description": "Etiqueta del campo de barrio"
+    },
+    "createAdCity": "Ciudad",
+    "@createAdCity": {
+        "description": "Etiqueta del campo de ciudad"
+    },
+    "createAdState": "Estado (UF)",
+    "@createAdState": {
+        "description": "Etiqueta del campo de estado/UF"
+    },
+    "createAdComplement": "Complemento",
+    "@createAdComplement": {
+        "description": "Etiqueta del campo de complemento"
+    },
+    "createAdComplementHint": "Apto, suite, etc. (opcional)",
+    "@createAdComplementHint": {
+        "description": "Texto de ayuda para el campo de complemento"
+    },
+    "createAdSectionImage": "Imagen del Inmueble",
+    "@createAdSectionImage": {
+        "description": "Encabezado de la sección de imagen"
+    },
+    "createAdAddImage": "Toca para agregar una imagen",
+    "@createAdAddImage": {
+        "description": "Texto mostrado cuando no hay imagen seleccionada"
+    },
+    "createAdChangeImage": "Toca para cambiar la imagen",
+    "@createAdChangeImage": {
+        "description": "Texto mostrado cuando ya hay una imagen seleccionada"
+    },
+    "createAdImageHint": "JPEG o PNG, máx. 5MB",
+    "@createAdImageHint": {
+        "description": "Texto de ayuda con restricciones de formato y tamaño"
+    },
+    "createAdSubmit": "Publicar Anuncio",
+    "@createAdSubmit": {
+        "description": "Etiqueta del botón de envío en la pantalla de creación"
+    },
+    "createAdSuccess": "¡Anuncio publicado con éxito!",
+    "@createAdSuccess": {
+        "description": "Toast mostrado tras crear el anuncio exitosamente"
     }
 }

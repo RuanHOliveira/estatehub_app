@@ -203,6 +203,80 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get deleteAdDialogCancel => 'Cancelar';
+
+  @override
+  String get createAdTitle => 'Criar Anúncio';
+
+  @override
+  String get createAdSectionDetails => 'Detalhes do Anúncio';
+
+  @override
+  String get createAdType => 'Tipo';
+
+  @override
+  String get createAdSale => 'Venda';
+
+  @override
+  String get createAdRent => 'Arrendamento';
+
+  @override
+  String get createAdPrice => 'Preço (BRL)';
+
+  @override
+  String get createAdPriceHint => 'ex: 450000.00';
+
+  @override
+  String get createAdInvalidPrice =>
+      'Introduza um preço válido superior a zero';
+
+  @override
+  String get createAdSectionAddress => 'Morada';
+
+  @override
+  String get createAdZipCode => 'Código Postal';
+
+  @override
+  String get createAdInvalidZip =>
+      'Introduza um código postal válido com 8 dígitos';
+
+  @override
+  String get createAdStreet => 'Rua';
+
+  @override
+  String get createAdNumber => 'Número';
+
+  @override
+  String get createAdNeighborhood => 'Freguesia';
+
+  @override
+  String get createAdCity => 'Cidade';
+
+  @override
+  String get createAdState => 'Distrito (UF)';
+
+  @override
+  String get createAdComplement => 'Complemento';
+
+  @override
+  String get createAdComplementHint => 'Apto, sala, etc. (opcional)';
+
+  @override
+  String get createAdSectionImage => 'Imagem do Imóvel';
+
+  @override
+  String get createAdAddImage => 'Toque para adicionar uma imagem';
+
+  @override
+  String get createAdChangeImage => 'Toque para alterar a imagem';
+
+  @override
+  String get createAdImageHint => 'JPEG ou PNG, máx. 5MB';
+
+  @override
+  String get createAdSubmit => 'Publicar Anúncio';
+
+  @override
+  String get createAdSuccess => 'Anúncio publicado com sucesso!';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -404,4 +478,76 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get deleteAdDialogCancel => 'Cancelar';
+
+  @override
+  String get createAdTitle => 'Criar Anúncio';
+
+  @override
+  String get createAdSectionDetails => 'Detalhes do Anúncio';
+
+  @override
+  String get createAdType => 'Tipo';
+
+  @override
+  String get createAdSale => 'Venda';
+
+  @override
+  String get createAdRent => 'Aluguel';
+
+  @override
+  String get createAdPrice => 'Preço (BRL)';
+
+  @override
+  String get createAdPriceHint => 'ex: 450000.00';
+
+  @override
+  String get createAdInvalidPrice => 'Informe um preço válido maior que zero';
+
+  @override
+  String get createAdSectionAddress => 'Endereço';
+
+  @override
+  String get createAdZipCode => 'CEP';
+
+  @override
+  String get createAdInvalidZip => 'Informe um CEP válido com 8 dígitos';
+
+  @override
+  String get createAdStreet => 'Logradouro';
+
+  @override
+  String get createAdNumber => 'Número';
+
+  @override
+  String get createAdNeighborhood => 'Bairro';
+
+  @override
+  String get createAdCity => 'Cidade';
+
+  @override
+  String get createAdState => 'Estado (UF)';
+
+  @override
+  String get createAdComplement => 'Complemento';
+
+  @override
+  String get createAdComplementHint => 'Apto, sala, etc. (opcional)';
+
+  @override
+  String get createAdSectionImage => 'Imagem do Imóvel';
+
+  @override
+  String get createAdAddImage => 'Toque para adicionar uma imagem';
+
+  @override
+  String get createAdChangeImage => 'Toque para trocar a imagem';
+
+  @override
+  String get createAdImageHint => 'JPEG ou PNG, máx. 5MB';
+
+  @override
+  String get createAdSubmit => 'Publicar Anúncio';
+
+  @override
+  String get createAdSuccess => 'Anúncio publicado com sucesso!';
 }

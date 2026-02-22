@@ -39,6 +39,7 @@ class _MainNavigationState extends State<MainNavigation> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
     final cs = Theme.of(context).colorScheme;
 
     return ListenableBuilder(
@@ -51,6 +52,14 @@ class _MainNavigationState extends State<MainNavigation> {
             currentIndex: widget.mainViewmodel.selectedIndex,
             onItemSelected: changeScreen,
           ),
+          floatingActionButton: widget.mainViewmodel.selectedIndex == 0
+              ? FloatingActionButton(
+                  onPressed: () => context.go(Routes.createPropertyAd),
+                  backgroundColor: cs.inversePrimary,
+                  tooltip: loc.createAdTitle,
+                  child: Icon(Icons.add_rounded, color: cs.secondary),
+                )
+              : null,
           body: IndexedStack(
             index: widget.mainViewmodel.selectedIndex,
             children: [
@@ -76,7 +85,6 @@ class _AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-    final deviceSize = MediaQuery.of(context).size;
     final padding = MediaQuery.of(context).padding;
     final loc = AppLocalizations.of(context)!;
 
@@ -121,11 +129,6 @@ class _AppDrawer extends StatelessWidget {
                   'EstateHub',
                   style: AppTextStyles.textBold24.copyWith(letterSpacing: 1),
                 ),
-                // const SizedBox(height: 4),
-                // Text(
-                //   'Its a Family',
-                //   style: AppTextStyles.text14.copyWith(color: cs.tertiary),
-                // ),
               ],
             ),
           ),

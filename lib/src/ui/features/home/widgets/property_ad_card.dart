@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:estatehub_app/src/config/l10n/gen/app_localizations.dart';
 import 'package:estatehub_app/src/data/models/property_ad_model.dart';
 import 'package:estatehub_app/src/ui/core/themes/app_text_styles.dart';
@@ -134,13 +135,32 @@ class PropertyAdCard extends StatelessWidget {
                       ),
                       const SizedBox(width: 4),
                       Text(
-                        ad.zipCode,
+                        UtilBrasilFields.obterCep(ad.zipCode),
                         style: AppTextStyles.text12.copyWith(
                           color: cs.primary.withValues(alpha: 0.5),
                         ),
                       ),
                     ],
                   ),
+                  if (ad.complement != null && ad.complement!.isNotEmpty) ...[
+                    const SizedBox(height: 4),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.info_outline_rounded,
+                          size: 12,
+                          color: cs.primary.withValues(alpha: 0.5),
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          ad.complement!,
+                          style: AppTextStyles.text12.copyWith(
+                            color: cs.primary.withValues(alpha: 0.5),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ],
               ),
             ),
@@ -188,24 +208,17 @@ class _TypeBadge extends StatelessWidget {
     final cs = Theme.of(context).colorScheme;
     final loc = AppLocalizations.of(context)!;
     final isSale = type == 'SALE';
-    final badgeColor = isSale
-        ? cs.tertiary.withValues(alpha: 0.15)
-        : cs.inversePrimary.withValues(alpha: 0.1);
-    final textColor = isSale ? cs.tertiary : cs.inversePrimary;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: badgeColor,
+        color: cs.inversePrimary.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
         isSale ? loc.homeFilterSale : loc.homeFilterRent,
-        style: AppTextStyles.textBold12.copyWith(color: textColor),
+        style: AppTextStyles.textBold12.copyWith(color: cs.inversePrimary),
       ),
     );
   }
 }
-
-
-

@@ -1,5 +1,7 @@
 import 'package:estatehub_app/src/data/local/local_storage.dart';
 import 'package:estatehub_app/src/data/models/property_ad_model.dart';
+import 'package:estatehub_app/src/data/models/via_cep_model.dart';
+import 'package:estatehub_app/src/ui/features/property_ads/data/property_ad_input.dart';
 import 'package:estatehub_app/src/ui/features/property_ads/data/property_ads_service.dart';
 import 'package:estatehub_app/src/utils/result.dart';
 
@@ -20,10 +22,10 @@ class PropertyAdsRepository {
     );
     return switch (result) {
       Success(value: final data) => Result.success(
-          data
-              .map((e) => PropertyAdModel.fromJson(e as Map<String, dynamic>))
-              .toList(),
-        ),
+        data
+            .map((e) => PropertyAdModel.fromJson(e as Map<String, dynamic>))
+            .toList(),
+      ),
       Error(error: final e) => Result.error(e),
     };
   }
@@ -38,5 +40,27 @@ class PropertyAdsRepository {
       Success() => Result.success(null),
       Error(error: final e) => Result.error(e),
     };
+  }
+
+  Future<Result<PropertyAdModel>> createPropertyAd(
+    PropertyAdInput input,
+  ) async {
+    final token = await _localStorage.getAccessToken();
+    final result = await _propertyAdsService.createPropertyAd(
+      input: input,
+      token: token ?? '',
+    );
+
+    switch (result) {
+      case Success(value: final data):
+        return Result.success(PropertyAdModel.fromJson(data));
+      case Error(error: final e):
+        return Result.error(e);
+    }
+  }
+
+  Future<Result<ViaCepModel>> fetchAddressByCep(String cep) async {
+    final token = await _localStorage.getAccessToken();
+    return _propertyAdsService.fetchAddressByCep(cep: cep, token: token ?? '');
   }
 }

@@ -48,6 +48,8 @@ dependencies:
   http: ^1.6.0
   shared_preferences: ^2.5.4
   package_info_plus: ^9.0.0
+  image_picker: ^1.1.2
+  http_parser: ^4.0.2
 
 dev_dependencies:
   flutter_test:

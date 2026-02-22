@@ -6,6 +6,7 @@ import 'package:estatehub_app/src/ui/features/auth/register/ui/register_viewmode
 import 'package:estatehub_app/src/ui/features/home/home_viewmodel.dart';
 import 'package:estatehub_app/src/ui/features/main/ui/main_viewmodel.dart';
 import 'package:estatehub_app/src/ui/features/property_ads/data/property_ads_repository.dart';
+import 'package:estatehub_app/src/ui/features/property_ads/ui/create_property_ad_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -31,5 +32,11 @@ List<SingleChildWidget> buildViewModelsProviders() => [
   ChangeNotifierProvider<MainViewModel>(
     create: (context) =>
         MainViewModel(homeViewModel: context.read<HomeViewModel>()),
+  ),
+
+  ChangeNotifierProvider<CreatePropertyAdViewModel>(
+    create: (context) => CreatePropertyAdViewModel(
+      propertyAdsRepository: context.read<PropertyAdsRepository>(),
+    ),
   ),
 ];

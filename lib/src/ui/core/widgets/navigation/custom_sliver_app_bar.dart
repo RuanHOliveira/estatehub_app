@@ -29,7 +29,6 @@ class CustomSliverAppBar extends StatelessWidget
       surfaceTintColor: Colors.transparent,
       shape: OutlineInputBorder(
         borderSide: BorderSide(color: Colors.transparent),
-        borderRadius: BorderRadius.circular(16),
       ),
       automaticallyImplyLeading: false,
       actions: actions,

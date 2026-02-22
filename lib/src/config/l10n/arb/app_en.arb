@@ -247,5 +247,101 @@
     "deleteAdDialogCancel": "Cancel",
     "@deleteAdDialogCancel": {
         "description": "Cancel button label on the delete property ad dialog"
+    },
+    "createAdTitle": "Create Listing",
+    "@createAdTitle": {
+        "description": "Title of the create property ad screen"
+    },
+    "createAdSectionDetails": "Listing Details",
+    "@createAdSectionDetails": {
+        "description": "Section header for listing type and price fields"
+    },
+    "createAdType": "Type",
+    "@createAdType": {
+        "description": "Label for the listing type selector (Sale or Rent)"
+    },
+    "createAdSale": "Sale",
+    "@createAdSale": {
+        "description": "Label for the Sale type chip"
+    },
+    "createAdRent": "Rent",
+    "@createAdRent": {
+        "description": "Label for the Rent type chip"
+    },
+    "createAdPrice": "Price (BRL)",
+    "@createAdPrice": {
+        "description": "Label for the price input field"
+    },
+    "createAdPriceHint": "e.g. 450000.00",
+    "@createAdPriceHint": {
+        "description": "Hint text for the price input field"
+    },
+    "createAdInvalidPrice": "Enter a valid price greater than zero",
+    "@createAdInvalidPrice": {
+        "description": "Validation message for invalid price"
+    },
+    "createAdSectionAddress": "Address",
+    "@createAdSectionAddress": {
+        "description": "Section header for address fields"
+    },
+    "createAdZipCode": "ZIP Code",
+    "@createAdZipCode": {
+        "description": "Label for the ZIP code input field"
+    },
+    "createAdInvalidZip": "Enter a valid 8-digit ZIP code",
+    "@createAdInvalidZip": {
+        "description": "Validation message for invalid ZIP code"
+    },
+    "createAdStreet": "Street",
+    "@createAdStreet": {
+        "description": "Label for the street input field"
+    },
+    "createAdNumber": "Number",
+    "@createAdNumber": {
+        "description": "Label for the address number input field"
+    },
+    "createAdNeighborhood": "Neighborhood",
+    "@createAdNeighborhood": {
+        "description": "Label for the neighborhood input field"
+    },
+    "createAdCity": "City",
+    "@createAdCity": {
+        "description": "Label for the city input field"
+    },
+    "createAdState": "State (UF)",
+    "@createAdState": {
+        "description": "Label for the state/UF input field"
+    },
+    "createAdComplement": "Complement",
+    "@createAdComplement": {
+        "description": "Label for the address complement input field"
+    },
+    "createAdComplementHint": "Apt, suite, etc. (optional)",
+    "@createAdComplementHint": {
+        "description": "Hint text for the complement input field"
+    },
+    "createAdSectionImage": "Property Image",
+    "@createAdSectionImage": {
+        "description": "Section header for the image picker"
+    },
+    "createAdAddImage": "Tap to add an image",
+    "@createAdAddImage": {
+        "description": "Prompt shown when no image is selected"
+    },
+    "createAdChangeImage": "Tap to change image",
+    "@createAdChangeImage": {
+        "description": "Prompt shown when an image is already selected"
+    },
+    "createAdImageHint": "JPEG or PNG, max 5MB",
+    "@createAdImageHint": {
+        "description": "Hint text with image format and size restrictions"
+    },
+    "createAdSubmit": "Publish Listing",
+    "@createAdSubmit": {
+        "description": "Label for the submit button on the create property ad screen"
+    },
+    "createAdSuccess": "Listing published successfully!",
+    "@createAdSuccess": {
+        "description": "Toast message shown after successfully creating a property ad"
     }
 }

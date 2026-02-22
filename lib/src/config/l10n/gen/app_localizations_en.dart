@@ -201,4 +201,76 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get deleteAdDialogCancel => 'Cancel';
+
+  @override
+  String get createAdTitle => 'Create Listing';
+
+  @override
+  String get createAdSectionDetails => 'Listing Details';
+
+  @override
+  String get createAdType => 'Type';
+
+  @override
+  String get createAdSale => 'Sale';
+
+  @override
+  String get createAdRent => 'Rent';
+
+  @override
+  String get createAdPrice => 'Price (BRL)';
+
+  @override
+  String get createAdPriceHint => 'e.g. 450000.00';
+
+  @override
+  String get createAdInvalidPrice => 'Enter a valid price greater than zero';
+
+  @override
+  String get createAdSectionAddress => 'Address';
+
+  @override
+  String get createAdZipCode => 'ZIP Code';
+
+  @override
+  String get createAdInvalidZip => 'Enter a valid 8-digit ZIP code';
+
+  @override
+  String get createAdStreet => 'Street';
+
+  @override
+  String get createAdNumber => 'Number';
+
+  @override
+  String get createAdNeighborhood => 'Neighborhood';
+
+  @override
+  String get createAdCity => 'City';
+
+  @override
+  String get createAdState => 'State (UF)';
+
+  @override
+  String get createAdComplement => 'Complement';
+
+  @override
+  String get createAdComplementHint => 'Apt, suite, etc. (optional)';
+
+  @override
+  String get createAdSectionImage => 'Property Image';
+
+  @override
+  String get createAdAddImage => 'Tap to add an image';
+
+  @override
+  String get createAdChangeImage => 'Tap to change image';
+
+  @override
+  String get createAdImageHint => 'JPEG or PNG, max 5MB';
+
+  @override
+  String get createAdSubmit => 'Publish Listing';
+
+  @override
+  String get createAdSuccess => 'Listing published successfully!';
 }

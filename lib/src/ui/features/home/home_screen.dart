@@ -43,8 +43,9 @@ class _HomeScreenState extends State<HomeScreen> {
   void didUpdateWidget(covariant HomeScreen oldWidget) {
     super.didUpdateWidget(oldWidget);
     oldWidget._homeViewModel.loadAds.removeListener(_onLoadAdsResult);
-    oldWidget._homeViewModel.deletePropertyAdCommand
-        .removeListener(_onDeleteResult);
+    oldWidget._homeViewModel.deletePropertyAdCommand.removeListener(
+      _onDeleteResult,
+    );
     widget._homeViewModel.loadAds.addListener(_onLoadAdsResult);
     widget._homeViewModel.deletePropertyAdCommand.addListener(_onDeleteResult);
   }
@@ -52,8 +53,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void dispose() {
     widget._homeViewModel.loadAds.removeListener(_onLoadAdsResult);
-    widget._homeViewModel.deletePropertyAdCommand
-        .removeListener(_onDeleteResult);
+    widget._homeViewModel.deletePropertyAdCommand.removeListener(
+      _onDeleteResult,
+    );
     _searchController.dispose();
     super.dispose();
   }
@@ -72,8 +74,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _onDeleteResult() {
     final loc = AppLocalizations.of(context)!;
-    if (widget._homeViewModel.deletePropertyAdCommand.result
-        case Error(error: final e)) {
+    if (widget._homeViewModel.deletePropertyAdCommand.result case Error(
+      error: final e,
+    )) {
       _customToast.showToast(
         context,
         message: ErrorMapper.map(e.errorCode, loc),
@@ -176,8 +179,13 @@ class _HomeScreenState extends State<HomeScreen> {
               SliverLayoutBuilder(
                 builder: (context, constraints) {
                   final width = constraints.crossAxisExtent;
-                  final crossAxisCount =
-                      width < 500 ? 1 : width < 800 ? 2 : width < 1200 ? 3 : 4;
+                  final crossAxisCount = width < 500
+                      ? 1
+                      : width < 800
+                      ? 2
+                      : width < 1200
+                      ? 3
+                      : 4;
                   const spacing = 12.0;
                   final cardWidth =
                       (width - 32 - (crossAxisCount - 1) * spacing) /
@@ -193,19 +201,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         mainAxisSpacing: spacing,
                         mainAxisExtent: mainAxisExtent,
                       ),
-                      delegate: SliverChildBuilderDelegate(
-                        (context, index) {
-                          final ad = ads[index];
-                          return PropertyAdCard(
-                            ad: ad,
-                            isOwner: ad.userId == vm.currentUserId,
-                            onDeleteTap: ad.userId == vm.currentUserId
-                                ? () => _showDeleteDialog(context, ad.id)
-                                : null,
-                          );
-                        },
-                        childCount: ads.length,
-                      ),
+                      delegate: SliverChildBuilderDelegate((context, index) {
+                        final ad = ads[index];
+                        return PropertyAdCard(
+                          ad: ad,
+                          isOwner: ad.userId == vm.currentUserId,
+                          onDeleteTap: ad.userId == vm.currentUserId
+                              ? () => _showDeleteDialog(context, ad.id)
+                              : null,
+                        );
+                      }, childCount: ads.length),
                     ),
                   );
                 },
@@ -244,11 +249,7 @@ class _RefreshButton extends StatelessWidget {
                   color: cs.inversePrimary,
                 ),
               )
-            : Icon(
-                Icons.refresh_rounded,
-                color: cs.inversePrimary,
-                size: 20,
-              ),
+            : Icon(Icons.refresh_rounded, color: cs.inversePrimary, size: 20),
       ),
     );
   }

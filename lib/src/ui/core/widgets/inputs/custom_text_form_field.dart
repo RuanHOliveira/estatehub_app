@@ -1,5 +1,6 @@
 import 'package:estatehub_app/src/ui/core/themes/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomTextFormField extends StatefulWidget {
   final TextEditingController? controller;
@@ -14,6 +15,8 @@ class CustomTextFormField extends StatefulWidget {
   final int? minLines;
   final int? maxLines;
   final Color? fillColor;
+  final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
 
   const CustomTextFormField({
     super.key,
@@ -29,6 +32,8 @@ class CustomTextFormField extends StatefulWidget {
     this.maxLines = 1,
     this.fillColor,
     this.minLines,
+    this.keyboardType,
+    this.inputFormatters,
   });
 
   @override
@@ -71,9 +76,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         controller: widget.controller,
         validator: widget.validator,
         style: AppTextStyles.text14.copyWith(color: cs.primary),
-        keyboardType: ((widget.maxLines != null && widget.maxLines! > 1)
-            ? TextInputType.multiline
-            : TextInputType.text),
+        keyboardType: widget.keyboardType ??
+            ((widget.maxLines != null && widget.maxLines! > 1)
+                ? TextInputType.multiline
+                : TextInputType.text),
+        inputFormatters: widget.inputFormatters,
         obscureText: widget.obscureText ?? false,
         cursorColor: cs.primary,
         decoration: InputDecoration(

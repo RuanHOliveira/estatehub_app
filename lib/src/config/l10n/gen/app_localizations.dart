@@ -472,6 +472,150 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cancel'**
   String get deleteAdDialogCancel;
+
+  /// Title of the create property ad screen
+  ///
+  /// In en, this message translates to:
+  /// **'Create Listing'**
+  String get createAdTitle;
+
+  /// Section header for listing type and price fields
+  ///
+  /// In en, this message translates to:
+  /// **'Listing Details'**
+  String get createAdSectionDetails;
+
+  /// Label for the listing type selector (Sale or Rent)
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get createAdType;
+
+  /// Label for the Sale type chip
+  ///
+  /// In en, this message translates to:
+  /// **'Sale'**
+  String get createAdSale;
+
+  /// Label for the Rent type chip
+  ///
+  /// In en, this message translates to:
+  /// **'Rent'**
+  String get createAdRent;
+
+  /// Label for the price input field
+  ///
+  /// In en, this message translates to:
+  /// **'Price (BRL)'**
+  String get createAdPrice;
+
+  /// Hint text for the price input field
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. 450000.00'**
+  String get createAdPriceHint;
+
+  /// Validation message for invalid price
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid price greater than zero'**
+  String get createAdInvalidPrice;
+
+  /// Section header for address fields
+  ///
+  /// In en, this message translates to:
+  /// **'Address'**
+  String get createAdSectionAddress;
+
+  /// Label for the ZIP code input field
+  ///
+  /// In en, this message translates to:
+  /// **'ZIP Code'**
+  String get createAdZipCode;
+
+  /// Validation message for invalid ZIP code
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid 8-digit ZIP code'**
+  String get createAdInvalidZip;
+
+  /// Label for the street input field
+  ///
+  /// In en, this message translates to:
+  /// **'Street'**
+  String get createAdStreet;
+
+  /// Label for the address number input field
+  ///
+  /// In en, this message translates to:
+  /// **'Number'**
+  String get createAdNumber;
+
+  /// Label for the neighborhood input field
+  ///
+  /// In en, this message translates to:
+  /// **'Neighborhood'**
+  String get createAdNeighborhood;
+
+  /// Label for the city input field
+  ///
+  /// In en, this message translates to:
+  /// **'City'**
+  String get createAdCity;
+
+  /// Label for the state/UF input field
+  ///
+  /// In en, this message translates to:
+  /// **'State (UF)'**
+  String get createAdState;
+
+  /// Label for the address complement input field
+  ///
+  /// In en, this message translates to:
+  /// **'Complement'**
+  String get createAdComplement;
+
+  /// Hint text for the complement input field
+  ///
+  /// In en, this message translates to:
+  /// **'Apt, suite, etc. (optional)'**
+  String get createAdComplementHint;
+
+  /// Section header for the image picker
+  ///
+  /// In en, this message translates to:
+  /// **'Property Image'**
+  String get createAdSectionImage;
+
+  /// Prompt shown when no image is selected
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to add an image'**
+  String get createAdAddImage;
+
+  /// Prompt shown when an image is already selected
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to change image'**
+  String get createAdChangeImage;
+
+  /// Hint text with image format and size restrictions
+  ///
+  /// In en, this message translates to:
+  /// **'JPEG or PNG, max 5MB'**
+  String get createAdImageHint;
+
+  /// Label for the submit button on the create property ad screen
+  ///
+  /// In en, this message translates to:
+  /// **'Publish Listing'**
+  String get createAdSubmit;
+
+  /// Toast message shown after successfully creating a property ad
+  ///
+  /// In en, this message translates to:
+  /// **'Listing published successfully!'**
+  String get createAdSuccess;
 }
 
 class _AppLocalizationsDelegate

@@ -1,5 +1,7 @@
 import 'package:estatehub_app/src/data/local/local_storage.dart';
 import 'package:estatehub_app/src/data/models/property_ad_model.dart';
+import 'package:estatehub_app/src/data/models/via_cep_model.dart';
+import 'package:estatehub_app/src/ui/features/property_ads/data/property_ad_input.dart';
 import 'package:estatehub_app/src/ui/features/property_ads/data/property_ads_repository.dart';
 import 'package:estatehub_app/src/ui/features/property_ads/data/property_ads_service.dart';
 import 'package:estatehub_app/src/utils/app_exception.dart';
@@ -269,6 +271,377 @@ void main() {
 
           expect(result, isA<Error<void>>());
           expect((result as Error<void>).error.errorCode, 'ErrUnknown');
+        },
+      );
+    });
+
+    group('createPropertyAd', () {
+      const tInput = PropertyAdInput(
+        type: 'SALE',
+        priceBrl: '450000.00',
+        zipCode: '01310100',
+        street: 'Avenida Paulista',
+        number: '1000',
+        neighborhood: 'Bela Vista',
+        city: 'São Paulo',
+        state: 'SP',
+      );
+
+      test(
+        'deve retornar Success<PropertyAdModel> quando service retorna dados válidos',
+        () async {
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => tToken);
+          when(
+            () => mockService.createPropertyAd(input: tInput, token: tToken),
+          ).thenAnswer((_) async => Result.success(tAdJson));
+
+          final result = await repository.createPropertyAd(tInput);
+
+          expect(result, isA<Success<PropertyAdModel>>());
+          final ad = (result as Success<PropertyAdModel>).value;
+          expect(ad.id, 'ad-uuid-1');
+          expect(ad.type, 'SALE');
+          expect(ad.priceBrl, 450000.0);
+          verify(() => mockLocalStorage.getAccessToken()).called(1);
+          verify(
+            () => mockService.createPropertyAd(input: tInput, token: tToken),
+          ).called(1);
+        },
+      );
+
+      test(
+        'deve retornar erro ErrInvalidPrice quando preço é inválido (400)',
+        () async {
+          const tException = AppException(
+            errorCode: 'ErrInvalidPrice',
+            statusCode: 400,
+          );
+
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => tToken);
+          when(
+            () => mockService.createPropertyAd(input: tInput, token: tToken),
+          ).thenAnswer((_) async => Result.error(tException));
+
+          final result = await repository.createPropertyAd(tInput);
+
+          expect(result, isA<Error<PropertyAdModel>>());
+          final error = (result as Error<PropertyAdModel>).error;
+          expect(error.errorCode, 'ErrInvalidPrice');
+          expect(error.statusCode, 400);
+        },
+      );
+
+      test(
+        'deve retornar erro ErrInvalidAdType quando tipo de anúncio é inválido',
+        () async {
+          const tException = AppException(
+            errorCode: 'ErrInvalidAdType',
+            statusCode: 400,
+          );
+
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => tToken);
+          when(
+            () => mockService.createPropertyAd(input: tInput, token: tToken),
+          ).thenAnswer((_) async => Result.error(tException));
+
+          final result = await repository.createPropertyAd(tInput);
+
+          expect(result, isA<Error<PropertyAdModel>>());
+          expect(
+            (result as Error<PropertyAdModel>).error.errorCode,
+            'ErrInvalidAdType',
+          );
+        },
+      );
+
+      test(
+        'deve retornar erro ErrMissingAddressField quando campo de endereço está ausente',
+        () async {
+          const tException = AppException(
+            errorCode: 'ErrMissingAddressField',
+            statusCode: 400,
+          );
+
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => tToken);
+          when(
+            () => mockService.createPropertyAd(input: tInput, token: tToken),
+          ).thenAnswer((_) async => Result.error(tException));
+
+          final result = await repository.createPropertyAd(tInput);
+
+          expect(result, isA<Error<PropertyAdModel>>());
+          expect(
+            (result as Error<PropertyAdModel>).error.errorCode,
+            'ErrMissingAddressField',
+          );
+        },
+      );
+
+      test(
+        'deve retornar erro ErrImageTooLarge quando imagem excede 5MB',
+        () async {
+          const tException = AppException(
+            errorCode: 'ErrImageTooLarge',
+            statusCode: 400,
+          );
+
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => tToken);
+          when(
+            () => mockService.createPropertyAd(input: tInput, token: tToken),
+          ).thenAnswer((_) async => Result.error(tException));
+
+          final result = await repository.createPropertyAd(tInput);
+
+          expect(result, isA<Error<PropertyAdModel>>());
+          expect(
+            (result as Error<PropertyAdModel>).error.errorCode,
+            'ErrImageTooLarge',
+          );
+        },
+      );
+
+      test(
+        'deve retornar erro ErrInvalidImageType quando tipo de imagem é inválido',
+        () async {
+          const tException = AppException(
+            errorCode: 'ErrInvalidImageType',
+            statusCode: 400,
+          );
+
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => tToken);
+          when(
+            () => mockService.createPropertyAd(input: tInput, token: tToken),
+          ).thenAnswer((_) async => Result.error(tException));
+
+          final result = await repository.createPropertyAd(tInput);
+
+          expect(result, isA<Error<PropertyAdModel>>());
+          expect(
+            (result as Error<PropertyAdModel>).error.errorCode,
+            'ErrInvalidImageType',
+          );
+        },
+      );
+
+      test(
+        'deve chamar service com token vazio quando token é nulo',
+        () async {
+          const tException = AppException(
+            errorCode: 'ErrMissingToken',
+            statusCode: 401,
+          );
+
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => null);
+          when(
+            () => mockService.createPropertyAd(input: tInput, token: ''),
+          ).thenAnswer((_) async => Result.error(tException));
+
+          final result = await repository.createPropertyAd(tInput);
+
+          expect(result, isA<Error<PropertyAdModel>>());
+          expect(
+            (result as Error<PropertyAdModel>).error.errorCode,
+            'ErrMissingToken',
+          );
+          verify(
+            () => mockService.createPropertyAd(input: tInput, token: ''),
+          ).called(1);
+        },
+      );
+
+      test(
+        'deve retornar erro ErrUnknown quando service falha com erro genérico',
+        () async {
+          const tException = AppException(errorCode: 'ErrUnknown');
+
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => tToken);
+          when(
+            () => mockService.createPropertyAd(input: tInput, token: tToken),
+          ).thenAnswer((_) async => Result.error(tException));
+
+          final result = await repository.createPropertyAd(tInput);
+
+          expect(result, isA<Error<PropertyAdModel>>());
+          expect(
+            (result as Error<PropertyAdModel>).error.errorCode,
+            'ErrUnknown',
+          );
+        },
+      );
+    });
+
+    group('fetchAddressByCep', () {
+      const tCep = '01310100';
+      const tViaCep = ViaCepModel(
+        zipCode: '01310100',
+        street: 'Avenida Paulista',
+        neighborhood: 'Bela Vista',
+        city: 'São Paulo',
+        state: 'SP',
+        complement: '',
+      );
+
+      test(
+        'deve retornar Success<ViaCepModel> com campos preenchidos quando CEP é válido',
+        () async {
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => tToken);
+          when(
+            () => mockService.fetchAddressByCep(cep: tCep, token: tToken),
+          ).thenAnswer((_) async => Result.success(tViaCep));
+
+          final result = await repository.fetchAddressByCep(tCep);
+
+          expect(result, isA<Success<ViaCepModel>>());
+          final model = (result as Success<ViaCepModel>).value;
+          expect(model.zipCode, '01310100');
+          expect(model.street, 'Avenida Paulista');
+          expect(model.city, 'São Paulo');
+          expect(model.state, 'SP');
+          verify(() => mockLocalStorage.getAccessToken()).called(1);
+          verify(
+            () => mockService.fetchAddressByCep(cep: tCep, token: tToken),
+          ).called(1);
+        },
+      );
+
+      test(
+        'deve retornar erro ErrCEPNotFound quando CEP não é encontrado (404)',
+        () async {
+          const tException = AppException(
+            errorCode: 'ErrCEPNotFound',
+            statusCode: 404,
+          );
+
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => tToken);
+          when(
+            () => mockService.fetchAddressByCep(cep: tCep, token: tToken),
+          ).thenAnswer((_) async => Result.error(tException));
+
+          final result = await repository.fetchAddressByCep(tCep);
+
+          expect(result, isA<Error<ViaCepModel>>());
+          final error = (result as Error<ViaCepModel>).error;
+          expect(error.errorCode, 'ErrCEPNotFound');
+          expect(error.statusCode, 404);
+        },
+      );
+
+      test(
+        'deve retornar erro ErrInvalidCEP quando CEP tem formato inválido (400)',
+        () async {
+          const tException = AppException(
+            errorCode: 'ErrInvalidCEP',
+            statusCode: 400,
+          );
+
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => tToken);
+          when(
+            () => mockService.fetchAddressByCep(cep: tCep, token: tToken),
+          ).thenAnswer((_) async => Result.error(tException));
+
+          final result = await repository.fetchAddressByCep(tCep);
+
+          expect(result, isA<Error<ViaCepModel>>());
+          expect(
+            (result as Error<ViaCepModel>).error.errorCode,
+            'ErrInvalidCEP',
+          );
+        },
+      );
+
+      test(
+        'deve retornar erro ErrExternalServiceFailure quando ViaCEP está indisponível (502)',
+        () async {
+          const tException = AppException(
+            errorCode: 'ErrExternalServiceFailure',
+            statusCode: 502,
+          );
+
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => tToken);
+          when(
+            () => mockService.fetchAddressByCep(cep: tCep, token: tToken),
+          ).thenAnswer((_) async => Result.error(tException));
+
+          final result = await repository.fetchAddressByCep(tCep);
+
+          expect(result, isA<Error<ViaCepModel>>());
+          final error = (result as Error<ViaCepModel>).error;
+          expect(error.errorCode, 'ErrExternalServiceFailure');
+          expect(error.statusCode, 502);
+        },
+      );
+
+      test(
+        'deve chamar service com token vazio quando token é nulo',
+        () async {
+          const tException = AppException(
+            errorCode: 'ErrMissingToken',
+            statusCode: 401,
+          );
+
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => null);
+          when(
+            () => mockService.fetchAddressByCep(cep: tCep, token: ''),
+          ).thenAnswer((_) async => Result.error(tException));
+
+          final result = await repository.fetchAddressByCep(tCep);
+
+          expect(result, isA<Error<ViaCepModel>>());
+          expect(
+            (result as Error<ViaCepModel>).error.errorCode,
+            'ErrMissingToken',
+          );
+          verify(
+            () => mockService.fetchAddressByCep(cep: tCep, token: ''),
+          ).called(1);
+        },
+      );
+
+      test(
+        'deve retornar erro ErrUnknown quando service falha com erro genérico',
+        () async {
+          const tException = AppException(errorCode: 'ErrUnknown');
+
+          when(
+            () => mockLocalStorage.getAccessToken(),
+          ).thenAnswer((_) async => tToken);
+          when(
+            () => mockService.fetchAddressByCep(cep: tCep, token: tToken),
+          ).thenAnswer((_) async => Result.error(tException));
+
+          final result = await repository.fetchAddressByCep(tCep);
+
+          expect(result, isA<Error<ViaCepModel>>());
+          expect(
+            (result as Error<ViaCepModel>).error.errorCode,
+            'ErrUnknown',
+          );
         },
       );
     });

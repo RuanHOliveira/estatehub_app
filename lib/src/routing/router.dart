@@ -5,6 +5,8 @@ import 'package:estatehub_app/src/ui/features/auth/register/ui/register_screen.d
 import 'package:estatehub_app/src/ui/features/auth/register/ui/register_viewmodel.dart';
 import 'package:estatehub_app/src/ui/features/main/ui/main_navigation.dart';
 import 'package:estatehub_app/src/ui/features/main/ui/main_viewmodel.dart';
+import 'package:estatehub_app/src/ui/features/property_ads/ui/create_property_ad_screen.dart';
+import 'package:estatehub_app/src/ui/features/property_ads/ui/create_property_ad_viewmodel.dart';
 import 'package:estatehub_app/src/ui/features/splash/ui/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -43,6 +45,14 @@ final GoRouter router = GoRouter(
         return MainNavigation(
           mainViewmodel: context.read<MainViewModel>(),
           refreshHomeOnInit: refreshHome,
+        );
+      },
+    ),
+    GoRoute(
+      path: Routes.createPropertyAd,
+      builder: (context, state) {
+        return CreatePropertyAdScreen(
+          createPropertyAdViewModel: context.read<CreatePropertyAdViewModel>(),
         );
       },
     ),
