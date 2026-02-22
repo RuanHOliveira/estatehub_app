@@ -343,5 +343,37 @@
     "createAdSuccess": "Anúncio publicado com sucesso!",
     "@createAdSuccess": {
         "description": "Toast exibido após criar o anúncio com sucesso"
+    },
+    "exchangeRateSheetTitle": "Câmbio BRL → USD",
+    "@exchangeRateSheetTitle": {
+        "description": "Título do dialog de câmbio"
+    },
+    "exchangeRateDialogMessage": "Introduza a taxa de câmbio BRL para USD atual",
+    "@exchangeRateDialogMessage": {
+        "description": "Mensagem exibida no dialog de câmbio"
+    },
+    "exchangeRateFieldLabel": "Taxa (1 BRL = ? USD)",
+    "@exchangeRateFieldLabel": {
+        "description": "Rótulo do campo de câmbio"
+    },
+    "exchangeRateFieldHint": "0,18",
+    "@exchangeRateFieldHint": {
+        "description": "Dica para o campo de câmbio"
+    },
+    "exchangeRateSaveButton": "Guardar câmbio",
+    "@exchangeRateSaveButton": {
+        "description": "Rótulo do botão de guardar no bottom sheet de câmbio"
+    },
+    "exchangeRateInvalidValue": "Introduza um valor válido superior a zero",
+    "@exchangeRateInvalidValue": {
+        "description": "Mensagem de validação inline para câmbio inválido"
+    },
+    "exchangeRateSaveSuccess": "Câmbio guardado com sucesso!",
+    "@exchangeRateSaveSuccess": {
+        "description": "Toast exibido após guardar o câmbio com sucesso"
+    },
+    "exchangeRateButtonTooltip": "Câmbio",
+    "@exchangeRateButtonTooltip": {
+        "description": "Tooltip do botão de câmbio na home"
     }
 }

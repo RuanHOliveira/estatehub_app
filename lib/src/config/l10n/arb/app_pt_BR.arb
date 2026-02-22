@@ -343,5 +343,37 @@
     "createAdSuccess": "Anúncio publicado com sucesso!",
     "@createAdSuccess": {
         "description": "Toast exibido após criar o anúncio com sucesso"
+    },
+    "exchangeRateSheetTitle": "Cotação BRL → USD",
+    "@exchangeRateSheetTitle": {
+        "description": "Título do dialog de cotação"
+    },
+    "exchangeRateDialogMessage": "Informe a taxa de câmbio BRL para USD atual",
+    "@exchangeRateDialogMessage": {
+        "description": "Mensagem exibida no dialog de cotação"
+    },
+    "exchangeRateFieldLabel": "Taxa (1 BRL = ? USD)",
+    "@exchangeRateFieldLabel": {
+        "description": "Rótulo do campo de cotação"
+    },
+    "exchangeRateFieldHint": "0,18",
+    "@exchangeRateFieldHint": {
+        "description": "Dica para o campo de cotação"
+    },
+    "exchangeRateSaveButton": "Salvar cotação",
+    "@exchangeRateSaveButton": {
+        "description": "Rótulo do botão de salvar no bottom sheet de cotação"
+    },
+    "exchangeRateInvalidValue": "Informe um valor válido maior que 0",
+    "@exchangeRateInvalidValue": {
+        "description": "Mensagem de validação inline para cotação inválida"
+    },
+    "exchangeRateSaveSuccess": "Cotação salva com sucesso!",
+    "@exchangeRateSaveSuccess": {
+        "description": "Toast exibido após salvar a cotação com sucesso"
+    },
+    "exchangeRateButtonTooltip": "Cotação",
+    "@exchangeRateButtonTooltip": {
+        "description": "Tooltip do botão de cotação na home"
     }
 }

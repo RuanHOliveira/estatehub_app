@@ -273,4 +273,29 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get createAdSuccess => 'Listing published successfully!';
+
+  @override
+  String get exchangeRateSheetTitle => 'Exchange Rate BRL → USD';
+
+  @override
+  String get exchangeRateDialogMessage =>
+      'Enter the current BRL to USD exchange rate';
+
+  @override
+  String get exchangeRateFieldLabel => 'Rate (1 BRL = ? USD)';
+
+  @override
+  String get exchangeRateFieldHint => '0,18';
+
+  @override
+  String get exchangeRateSaveButton => 'Save Rate';
+
+  @override
+  String get exchangeRateInvalidValue => 'Enter a valid rate greater than 0';
+
+  @override
+  String get exchangeRateSaveSuccess => 'Exchange rate saved!';
+
+  @override
+  String get exchangeRateButtonTooltip => 'Exchange Rate';
 }

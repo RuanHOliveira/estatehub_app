@@ -277,4 +277,30 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get createAdSuccess => '¡Anuncio publicado con éxito!';
+
+  @override
+  String get exchangeRateSheetTitle => 'Tipo de Cambio BRL → USD';
+
+  @override
+  String get exchangeRateDialogMessage =>
+      'Ingrese el tipo de cambio BRL a USD actual';
+
+  @override
+  String get exchangeRateFieldLabel => 'Tasa (1 BRL = ? USD)';
+
+  @override
+  String get exchangeRateFieldHint => '0,18';
+
+  @override
+  String get exchangeRateSaveButton => 'Guardar tasa';
+
+  @override
+  String get exchangeRateInvalidValue =>
+      'Ingrese un valor válido mayor que cero';
+
+  @override
+  String get exchangeRateSaveSuccess => '¡Tipo de cambio guardado!';
+
+  @override
+  String get exchangeRateButtonTooltip => 'Tipo de cambio';
 }

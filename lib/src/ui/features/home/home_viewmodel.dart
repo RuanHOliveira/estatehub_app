@@ -1,7 +1,9 @@
 import 'package:estatehub_app/src/data/local/local_storage.dart';
 import 'package:estatehub_app/src/data/models/property_ad_model.dart';
 import 'package:estatehub_app/src/data/models/user_model.dart';
+import 'package:estatehub_app/src/ui/features/exchange_rates/data/exchange_rate_repository.dart';
 import 'package:estatehub_app/src/ui/features/property_ads/data/property_ads_repository.dart';
+import 'package:estatehub_app/src/utils/app_exception.dart';
 import 'package:estatehub_app/src/utils/command.dart';
 import 'package:estatehub_app/src/utils/result.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +13,7 @@ enum PropertyAdFilter { all, myAds, rent, sale }
 class HomeViewModel extends ChangeNotifier {
   final PropertyAdsRepository _propertyAdsRepository;
   final LocalStorage _localStorage;
+  final ExchangeRateRepository _exchangeRateRepository;
 
   List<PropertyAdModel> _allAds = [];
   String _currentUserId = '';
@@ -20,11 +23,17 @@ class HomeViewModel extends ChangeNotifier {
   HomeViewModel({
     required PropertyAdsRepository propertyAdsRepository,
     required LocalStorage localStorage,
+    required ExchangeRateRepository exchangeRateRepository,
   }) : _propertyAdsRepository = propertyAdsRepository,
-       _localStorage = localStorage;
+       _localStorage = localStorage,
+       _exchangeRateRepository = exchangeRateRepository;
 
   late final loadAds = Command0<void>(_loadAds);
   late final deletePropertyAdCommand = Command1<void, String>(_deletePropertyAd);
+  late final loadCurrentExchangeRateCommand =
+      Command0<double?>(_loadCurrentExchangeRate);
+  late final saveExchangeRateCommand =
+      Command1<void, String>(_saveExchangeRate);
 
   PropertyAdFilter get activeFilter => _activeFilter;
   String get searchText => _searchText;
@@ -92,5 +101,19 @@ class HomeViewModel extends ChangeNotifier {
       await loadAds.execute();
     }
     return result;
+  }
+
+  Future<Result<double?>> _loadCurrentExchangeRate() async {
+    return _exchangeRateRepository.getCurrentExchangeRateBrlToUsd();
+  }
+
+  Future<Result<void>> _saveExchangeRate(String rawValue) async {
+    final value = double.tryParse(rawValue.replaceAll(',', '.'));
+    if (value == null || value <= 0) {
+      return Result.error(
+        const AppException(errorCode: 'ErrInvalidRate'),
+      );
+    }
+    return _exchangeRateRepository.saveExchangeRateBrlToUsd(value);
   }
 }

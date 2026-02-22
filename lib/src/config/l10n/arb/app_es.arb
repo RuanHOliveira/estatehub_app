@@ -343,5 +343,37 @@
     "createAdSuccess": "¡Anuncio publicado con éxito!",
     "@createAdSuccess": {
         "description": "Toast mostrado tras crear el anuncio exitosamente"
+    },
+    "exchangeRateSheetTitle": "Tipo de Cambio BRL → USD",
+    "@exchangeRateSheetTitle": {
+        "description": "Título del dialog de tipo de cambio"
+    },
+    "exchangeRateDialogMessage": "Ingrese el tipo de cambio BRL a USD actual",
+    "@exchangeRateDialogMessage": {
+        "description": "Mensaje mostrado en el dialog de tipo de cambio"
+    },
+    "exchangeRateFieldLabel": "Tasa (1 BRL = ? USD)",
+    "@exchangeRateFieldLabel": {
+        "description": "Etiqueta del campo de tipo de cambio"
+    },
+    "exchangeRateFieldHint": "0,18",
+    "@exchangeRateFieldHint": {
+        "description": "Texto de ayuda para el campo de tipo de cambio"
+    },
+    "exchangeRateSaveButton": "Guardar tasa",
+    "@exchangeRateSaveButton": {
+        "description": "Etiqueta del botón de guardar en el bottom sheet de tipo de cambio"
+    },
+    "exchangeRateInvalidValue": "Ingrese un valor válido mayor que cero",
+    "@exchangeRateInvalidValue": {
+        "description": "Mensaje de validación inline para tipo de cambio inválido"
+    },
+    "exchangeRateSaveSuccess": "¡Tipo de cambio guardado!",
+    "@exchangeRateSaveSuccess": {
+        "description": "Toast mostrado tras guardar el tipo de cambio exitosamente"
+    },
+    "exchangeRateButtonTooltip": "Tipo de cambio",
+    "@exchangeRateButtonTooltip": {
+        "description": "Tooltip del botón de tipo de cambio en la pantalla de inicio"
     }
 }

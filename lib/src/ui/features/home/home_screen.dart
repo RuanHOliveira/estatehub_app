@@ -4,6 +4,7 @@ import 'package:estatehub_app/src/ui/core/widgets/dialogs/custom_general_dialog.
 import 'package:estatehub_app/src/ui/core/widgets/navigation/custom_sliver_app_bar.dart';
 import 'package:estatehub_app/src/ui/core/widgets/useful/custom_toast.dart';
 import 'package:estatehub_app/src/ui/features/home/home_viewmodel.dart';
+import 'package:estatehub_app/src/ui/features/home/widgets/exchange_rate_dialog_content.dart';
 import 'package:estatehub_app/src/ui/features/home/widgets/property_ad_card.dart';
 import 'package:estatehub_app/src/utils/error_mapper.dart';
 import 'package:estatehub_app/src/utils/result.dart';
@@ -32,6 +33,9 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     widget._homeViewModel.loadAds.addListener(_onLoadAdsResult);
     widget._homeViewModel.deletePropertyAdCommand.addListener(_onDeleteResult);
+    widget._homeViewModel.loadCurrentExchangeRateCommand.addListener(
+      _onLoadExchangeRateResult,
+    );
     if (widget.refreshOnInit) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         widget._homeViewModel.loadAds.execute();
@@ -46,8 +50,14 @@ class _HomeScreenState extends State<HomeScreen> {
     oldWidget._homeViewModel.deletePropertyAdCommand.removeListener(
       _onDeleteResult,
     );
+    oldWidget._homeViewModel.loadCurrentExchangeRateCommand.removeListener(
+      _onLoadExchangeRateResult,
+    );
     widget._homeViewModel.loadAds.addListener(_onLoadAdsResult);
     widget._homeViewModel.deletePropertyAdCommand.addListener(_onDeleteResult);
+    widget._homeViewModel.loadCurrentExchangeRateCommand.addListener(
+      _onLoadExchangeRateResult,
+    );
   }
 
   @override
@@ -55,6 +65,9 @@ class _HomeScreenState extends State<HomeScreen> {
     widget._homeViewModel.loadAds.removeListener(_onLoadAdsResult);
     widget._homeViewModel.deletePropertyAdCommand.removeListener(
       _onDeleteResult,
+    );
+    widget._homeViewModel.loadCurrentExchangeRateCommand.removeListener(
+      _onLoadExchangeRateResult,
     );
     _searchController.dispose();
     super.dispose();
@@ -86,6 +99,30 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  void _onLoadExchangeRateResult() {
+    final vm = widget._homeViewModel;
+    final result = vm.loadCurrentExchangeRateCommand.result;
+    if (result == null) return;
+
+    final loc = AppLocalizations.of(context)!;
+
+    if (result case Error(error: final e)) {
+      _customToast.showToast(
+        context,
+        message: ErrorMapper.map(e.errorCode, loc),
+        toastType: 'error',
+      );
+    }
+
+    final double? rate = switch (result) {
+      Success(value: final r) => r,
+      Error() => null,
+    };
+
+    vm.loadCurrentExchangeRateCommand.clearResult();
+    _showExchangeRateDialog(rate);
+  }
+
   void _showDeleteDialog(BuildContext context, String adId) {
     final loc = AppLocalizations.of(context)!;
     final vm = widget._homeViewModel;
@@ -105,6 +142,64 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  void _showExchangeRateDialog(double? initialRate) {
+    final vm = widget._homeViewModel;
+    final loc = AppLocalizations.of(context)!;
+    final cs = Theme.of(context).colorScheme;
+    final controller = TextEditingController(
+      text: initialRate?.toStringAsFixed(2).replaceAll('.', ',') ?? '',
+    );
+    final errorNotifier = ValueNotifier<String?>(null);
+
+    showCustomGeneralDialog(
+      context,
+      title: loc.exchangeRateSheetTitle,
+      message: loc.exchangeRateDialogMessage,
+      icon: Icons.currency_exchange,
+      iconColor: cs.tertiary,
+      iconBackgroundColor: cs.tertiary.withValues(alpha: 0.12),
+      confirmText: loc.exchangeRateSaveButton,
+      cancelText: loc.deleteAdDialogCancel,
+      confirmColor: cs.tertiary,
+      confirmTextColor: Colors.white,
+      loadingStyle: LoadingStyle.spinnerOnConfirmButton,
+      content: ExchangeRateDialogContent(
+        controller: controller,
+        errorNotifier: errorNotifier,
+      ),
+      onConfirmAsync: () async {
+        errorNotifier.value = null;
+        await vm.saveExchangeRateCommand.execute(controller.text);
+        final result = vm.saveExchangeRateCommand.result;
+        vm.saveExchangeRateCommand.clearResult();
+        if (!mounted) return false;
+        if (result is Success) {
+          _customToast.showToast(
+            context,
+            message: loc.exchangeRateSaveSuccess,
+            toastType: 'success',
+          );
+          vm.loadAds.execute();
+          return true;
+        }
+        if (result is Error) {
+          final e = (result as Error<void>).error;
+          if (e.errorCode == 'ErrInvalidRate') {
+            errorNotifier.value = loc.exchangeRateInvalidValue;
+            return false;
+          }
+          _customToast.showToast(
+            context,
+            message: ErrorMapper.map(e.errorCode, loc),
+            toastType: 'error',
+          );
+          return false;
+        }
+        return false;
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final loc = AppLocalizations.of(context)!;
@@ -114,6 +209,7 @@ class _HomeScreenState extends State<HomeScreen> {
         widget._homeViewModel,
         widget._homeViewModel.loadAds,
         widget._homeViewModel.deletePropertyAdCommand,
+        widget._homeViewModel.loadCurrentExchangeRateCommand,
       ]),
       builder: (context, _) {
         final vm = widget._homeViewModel;
@@ -129,6 +225,11 @@ class _HomeScreenState extends State<HomeScreen> {
               showDrawerButton: true,
               showBackButton: false,
               actions: [
+                _ExchangeRateButton(
+                  isLoading: vm.loadCurrentExchangeRateCommand.running,
+                  onTap: () => vm.loadCurrentExchangeRateCommand.execute(),
+                ),
+                const SizedBox(width: 8),
                 _RefreshButton(
                   isLoading: isLoading,
                   onTap: () => vm.loadAds.execute(),
@@ -218,6 +319,39 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         );
       },
+    );
+  }
+}
+
+class _ExchangeRateButton extends StatelessWidget {
+  final bool isLoading;
+  final VoidCallback onTap;
+
+  const _ExchangeRateButton({required this.isLoading, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+
+    return GestureDetector(
+      onTap: isLoading ? null : onTap,
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: cs.surface,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: isLoading
+            ? SizedBox(
+                width: 20,
+                height: 20,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2,
+                  color: cs.inversePrimary,
+                ),
+              )
+            : Icon(Icons.currency_exchange, color: cs.inversePrimary, size: 20),
+      ),
     );
   }
 }

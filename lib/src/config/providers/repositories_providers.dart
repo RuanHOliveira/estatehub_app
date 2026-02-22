@@ -3,6 +3,8 @@ import 'package:estatehub_app/src/ui/features/auth/login/data/login_repository.d
 import 'package:estatehub_app/src/ui/features/auth/login/data/login_service.dart';
 import 'package:estatehub_app/src/ui/features/auth/register/data/register_repository.dart';
 import 'package:estatehub_app/src/ui/features/auth/register/data/register_service.dart';
+import 'package:estatehub_app/src/ui/features/exchange_rates/data/exchange_rate_repository.dart';
+import 'package:estatehub_app/src/ui/features/exchange_rates/data/exchange_rate_service.dart';
 import 'package:estatehub_app/src/ui/features/property_ads/data/property_ads_repository.dart';
 import 'package:estatehub_app/src/ui/features/property_ads/data/property_ads_service.dart';
 import 'package:provider/provider.dart';
@@ -28,6 +30,13 @@ List<SingleChildWidget> buildRepositoriesProviders() => [
   Provider<PropertyAdsRepository>(
     create: (context) => PropertyAdsRepository(
       propertyAdsService: context.read<PropertyAdsService>(),
+      localStorage: context.read<LocalStorage>(),
+    ),
+  ),
+
+  Provider<ExchangeRateRepository>(
+    create: (context) => ExchangeRateRepository(
+      exchangeRateService: context.read<ExchangeRateService>(),
       localStorage: context.read<LocalStorage>(),
     ),
   ),

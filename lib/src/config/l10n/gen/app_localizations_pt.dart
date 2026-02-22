@@ -277,6 +277,32 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get createAdSuccess => 'Anúncio publicado com sucesso!';
+
+  @override
+  String get exchangeRateSheetTitle => 'Câmbio BRL → USD';
+
+  @override
+  String get exchangeRateDialogMessage =>
+      'Introduza a taxa de câmbio BRL para USD atual';
+
+  @override
+  String get exchangeRateFieldLabel => 'Taxa (1 BRL = ? USD)';
+
+  @override
+  String get exchangeRateFieldHint => '0,18';
+
+  @override
+  String get exchangeRateSaveButton => 'Guardar câmbio';
+
+  @override
+  String get exchangeRateInvalidValue =>
+      'Introduza um valor válido superior a zero';
+
+  @override
+  String get exchangeRateSaveSuccess => 'Câmbio guardado com sucesso!';
+
+  @override
+  String get exchangeRateButtonTooltip => 'Câmbio';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -550,4 +576,29 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get createAdSuccess => 'Anúncio publicado com sucesso!';
+
+  @override
+  String get exchangeRateSheetTitle => 'Cotação BRL → USD';
+
+  @override
+  String get exchangeRateDialogMessage =>
+      'Informe a taxa de câmbio BRL para USD atual';
+
+  @override
+  String get exchangeRateFieldLabel => 'Taxa (1 BRL = ? USD)';
+
+  @override
+  String get exchangeRateFieldHint => '0,18';
+
+  @override
+  String get exchangeRateSaveButton => 'Salvar cotação';
+
+  @override
+  String get exchangeRateInvalidValue => 'Informe um valor válido maior que 0';
+
+  @override
+  String get exchangeRateSaveSuccess => 'Cotação salva com sucesso!';
+
+  @override
+  String get exchangeRateButtonTooltip => 'Cotação';
 }

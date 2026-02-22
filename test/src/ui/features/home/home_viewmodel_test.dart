@@ -1,5 +1,6 @@
 import 'package:estatehub_app/src/data/local/local_storage.dart';
 import 'package:estatehub_app/src/data/models/property_ad_model.dart';
+import 'package:estatehub_app/src/ui/features/exchange_rates/data/exchange_rate_repository.dart';
 import 'package:estatehub_app/src/ui/features/home/home_viewmodel.dart';
 import 'package:estatehub_app/src/ui/features/property_ads/data/property_ads_repository.dart';
 import 'package:estatehub_app/src/utils/app_exception.dart';
@@ -10,6 +11,9 @@ import 'package:mocktail/mocktail.dart';
 class MockPropertyAdsRepository extends Mock implements PropertyAdsRepository {}
 
 class MockLocalStorage extends Mock implements LocalStorage {}
+
+class MockExchangeRateRepository extends Mock
+    implements ExchangeRateRepository {}
 
 PropertyAdModel _makeAd({
   String id = 'ad-1',
@@ -39,6 +43,7 @@ PropertyAdModel _makeAd({
 void main() {
   late MockPropertyAdsRepository mockRepository;
   late MockLocalStorage mockLocalStorage;
+  late MockExchangeRateRepository mockExchangeRateRepository;
   late HomeViewModel viewModel;
 
   const tCurrentUserId = 'user-current';
@@ -48,9 +53,11 @@ void main() {
   setUp(() {
     mockRepository = MockPropertyAdsRepository();
     mockLocalStorage = MockLocalStorage();
+    mockExchangeRateRepository = MockExchangeRateRepository();
     viewModel = HomeViewModel(
       propertyAdsRepository: mockRepository,
       localStorage: mockLocalStorage,
+      exchangeRateRepository: mockExchangeRateRepository,
     );
   });
 

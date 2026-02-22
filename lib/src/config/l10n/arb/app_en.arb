@@ -343,5 +343,37 @@
     "createAdSuccess": "Listing published successfully!",
     "@createAdSuccess": {
         "description": "Toast message shown after successfully creating a property ad"
+    },
+    "exchangeRateSheetTitle": "Exchange Rate BRL → USD",
+    "@exchangeRateSheetTitle": {
+        "description": "Title of the exchange rate dialog"
+    },
+    "exchangeRateDialogMessage": "Enter the current BRL to USD exchange rate",
+    "@exchangeRateDialogMessage": {
+        "description": "Subtitle message shown in the exchange rate dialog"
+    },
+    "exchangeRateFieldLabel": "Rate (1 BRL = ? USD)",
+    "@exchangeRateFieldLabel": {
+        "description": "Label for the exchange rate input field"
+    },
+    "exchangeRateFieldHint": "0,18",
+    "@exchangeRateFieldHint": {
+        "description": "Hint text for the exchange rate input field"
+    },
+    "exchangeRateSaveButton": "Save Rate",
+    "@exchangeRateSaveButton": {
+        "description": "Label for the save button on the exchange rate bottom sheet"
+    },
+    "exchangeRateInvalidValue": "Enter a valid rate greater than 0",
+    "@exchangeRateInvalidValue": {
+        "description": "Inline validation message for invalid exchange rate value"
+    },
+    "exchangeRateSaveSuccess": "Exchange rate saved!",
+    "@exchangeRateSaveSuccess": {
+        "description": "Toast message shown after successfully saving an exchange rate"
+    },
+    "exchangeRateButtonTooltip": "Exchange Rate",
+    "@exchangeRateButtonTooltip": {
+        "description": "Tooltip for the exchange rate button on the home screen"
     }
 }

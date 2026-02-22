@@ -3,6 +3,7 @@ import 'package:estatehub_app/src/ui/features/auth/login/data/login_repository.d
 import 'package:estatehub_app/src/ui/features/auth/login/ui/login_viewmodel.dart';
 import 'package:estatehub_app/src/ui/features/auth/register/data/register_repository.dart';
 import 'package:estatehub_app/src/ui/features/auth/register/ui/register_viewmodel.dart';
+import 'package:estatehub_app/src/ui/features/exchange_rates/data/exchange_rate_repository.dart';
 import 'package:estatehub_app/src/ui/features/home/home_viewmodel.dart';
 import 'package:estatehub_app/src/ui/features/main/ui/main_viewmodel.dart';
 import 'package:estatehub_app/src/ui/features/property_ads/data/property_ads_repository.dart';
@@ -26,6 +27,7 @@ List<SingleChildWidget> buildViewModelsProviders() => [
     create: (context) => HomeViewModel(
       propertyAdsRepository: context.read<PropertyAdsRepository>(),
       localStorage: context.read<LocalStorage>(),
+      exchangeRateRepository: context.read<ExchangeRateRepository>(),
     ),
   ),
 

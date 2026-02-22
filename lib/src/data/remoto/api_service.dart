@@ -10,8 +10,6 @@ import 'package:http_parser/http_parser.dart';
 class ApiService {
   String get _baseUrl => dotenv.env['API_URL'] ?? 'http://localhost:8080/v1';
 
-  static const _headers = {'Content-Type': 'application/json'};
-
   Future<Result<dynamic>> get(
     String path, {
     required String token,
@@ -137,12 +135,17 @@ class ApiService {
 
   Future<Result<Map<String, dynamic>>> post(
     String path,
-    Map<String, dynamic> body,
-  ) async {
+    Map<String, dynamic> body, {
+    String? token,
+  }) async {
     try {
       final uri = Uri.parse('$_baseUrl$path');
+      final headers = {
+        'Content-Type': 'application/json',
+        if (token != null) 'Authorization': 'Bearer $token',
+      };
       final response = await http
-          .post(uri, headers: _headers, body: jsonEncode(body))
+          .post(uri, headers: headers, body: jsonEncode(body))
           .timeout(const Duration(seconds: 15));
 
       final decoded = jsonDecode(response.body);

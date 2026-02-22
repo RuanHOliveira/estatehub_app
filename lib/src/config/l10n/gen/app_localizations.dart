@@ -616,6 +616,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Listing published successfully!'**
   String get createAdSuccess;
+
+  /// Title of the exchange rate dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Exchange Rate BRL → USD'**
+  String get exchangeRateSheetTitle;
+
+  /// Subtitle message shown in the exchange rate dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the current BRL to USD exchange rate'**
+  String get exchangeRateDialogMessage;
+
+  /// Label for the exchange rate input field
+  ///
+  /// In en, this message translates to:
+  /// **'Rate (1 BRL = ? USD)'**
+  String get exchangeRateFieldLabel;
+
+  /// Hint text for the exchange rate input field
+  ///
+  /// In en, this message translates to:
+  /// **'0,18'**
+  String get exchangeRateFieldHint;
+
+  /// Label for the save button on the exchange rate bottom sheet
+  ///
+  /// In en, this message translates to:
+  /// **'Save Rate'**
+  String get exchangeRateSaveButton;
+
+  /// Inline validation message for invalid exchange rate value
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid rate greater than 0'**
+  String get exchangeRateInvalidValue;
+
+  /// Toast message shown after successfully saving an exchange rate
+  ///
+  /// In en, this message translates to:
+  /// **'Exchange rate saved!'**
+  String get exchangeRateSaveSuccess;
+
+  /// Tooltip for the exchange rate button on the home screen
+  ///
+  /// In en, this message translates to:
+  /// **'Exchange Rate'**
+  String get exchangeRateButtonTooltip;
 }
 
 class _AppLocalizationsDelegate
