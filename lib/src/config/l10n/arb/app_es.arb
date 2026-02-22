@@ -191,5 +191,41 @@
     "home": "Inicio",
     "@home": {
         "description": "Home navigation item"
+    },
+    "homeSearchHint": "Buscar propiedades...",
+    "@homeSearchHint": {
+        "description": "Texto de placeholder en la barra de búsqueda de la pantalla inicial"
+    },
+    "homeFilterAll": "Todos",
+    "@homeFilterAll": {
+        "description": "Etiqueta del chip de filtro para mostrar todos los anuncios"
+    },
+    "homeFilterMyAds": "Mis Anuncios",
+    "@homeFilterMyAds": {
+        "description": "Etiqueta del chip de filtro para mostrar solo los anuncios del usuario autenticado"
+    },
+    "homeFilterRent": "Alquiler",
+    "@homeFilterRent": {
+        "description": "Etiqueta del chip de filtro para mostrar solo anuncios de alquiler"
+    },
+    "homeFilterSale": "Venta",
+    "@homeFilterSale": {
+        "description": "Etiqueta del chip de filtro para mostrar solo anuncios de venta"
+    },
+    "homeEmptyTitle": "Sin propiedades",
+    "@homeEmptyTitle": {
+        "description": "Título mostrado cuando la lista de anuncios está vacía"
+    },
+    "homeEmptyDescription": "Intenta ajustar los filtros o la búsqueda",
+    "@homeEmptyDescription": {
+        "description": "Descripción mostrada cuando la lista de anuncios está vacía"
+    },
+    "homeLoadError": "Error al cargar propiedades",
+    "@homeLoadError": {
+        "description": "Mensaje de error mostrado cuando los anuncios no cargan"
+    },
+    "homeRetry": "Intentar de nuevo",
+    "@homeRetry": {
+        "description": "Etiqueta del botón para reintentar la carga de anuncios tras un error"
     }
 }

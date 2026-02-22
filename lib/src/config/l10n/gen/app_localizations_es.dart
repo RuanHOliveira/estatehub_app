@@ -160,4 +160,32 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get home => 'Inicio';
+
+  @override
+  String get homeSearchHint => 'Buscar propiedades...';
+
+  @override
+  String get homeFilterAll => 'Todos';
+
+  @override
+  String get homeFilterMyAds => 'Mis Anuncios';
+
+  @override
+  String get homeFilterRent => 'Alquiler';
+
+  @override
+  String get homeFilterSale => 'Venta';
+
+  @override
+  String get homeEmptyTitle => 'Sin propiedades';
+
+  @override
+  String get homeEmptyDescription =>
+      'Intenta ajustar los filtros o la búsqueda';
+
+  @override
+  String get homeLoadError => 'Error al cargar propiedades';
+
+  @override
+  String get homeRetry => 'Intentar de nuevo';
 }

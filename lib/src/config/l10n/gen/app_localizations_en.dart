@@ -158,4 +158,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get home => 'Home';
+
+  @override
+  String get homeSearchHint => 'Search properties...';
+
+  @override
+  String get homeFilterAll => 'All';
+
+  @override
+  String get homeFilterMyAds => 'My Ads';
+
+  @override
+  String get homeFilterRent => 'Rent';
+
+  @override
+  String get homeFilterSale => 'Sale';
+
+  @override
+  String get homeEmptyTitle => 'No properties found';
+
+  @override
+  String get homeEmptyDescription => 'Try adjusting the filters or search term';
+
+  @override
+  String get homeLoadError => 'Failed to load properties';
+
+  @override
+  String get homeRetry => 'Try again';
 }

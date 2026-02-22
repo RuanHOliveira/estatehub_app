@@ -32,6 +32,7 @@ class CustomSliverAppBar extends StatelessWidget
         borderRadius: BorderRadius.circular(16),
       ),
       automaticallyImplyLeading: false,
+      actions: actions,
       title: Text(
         title ?? '',
         style: AppTextStyles.textBold22.copyWith(

@@ -191,5 +191,41 @@
     "home": "Home",
     "@home": {
         "description": "Home navigation item"
+    },
+    "homeSearchHint": "Search properties...",
+    "@homeSearchHint": {
+        "description": "Placeholder text in the home screen search bar"
+    },
+    "homeFilterAll": "All",
+    "@homeFilterAll": {
+        "description": "Filter chip label to show all property ads"
+    },
+    "homeFilterMyAds": "My Ads",
+    "@homeFilterMyAds": {
+        "description": "Filter chip label to show only the authenticated user's ads"
+    },
+    "homeFilterRent": "Rent",
+    "@homeFilterRent": {
+        "description": "Filter chip label to show only rental ads"
+    },
+    "homeFilterSale": "Sale",
+    "@homeFilterSale": {
+        "description": "Filter chip label to show only sale ads"
+    },
+    "homeEmptyTitle": "No properties found",
+    "@homeEmptyTitle": {
+        "description": "Title shown when the property ads list is empty"
+    },
+    "homeEmptyDescription": "Try adjusting the filters or search term",
+    "@homeEmptyDescription": {
+        "description": "Description shown when the property ads list is empty"
+    },
+    "homeLoadError": "Failed to load properties",
+    "@homeLoadError": {
+        "description": "Error message shown when property ads fail to load"
+    },
+    "homeRetry": "Try again",
+    "@homeRetry": {
+        "description": "Button label to retry loading property ads after an error"
     }
 }

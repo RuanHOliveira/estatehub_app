@@ -42,11 +42,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         final cs = Theme.of(ctx).colorScheme;
         final loc = AppLocalizations.of(ctx)!;
 
-        return SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 20, 16, 16),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
+        final bottomPadding = MediaQuery.of(ctx).padding.bottom;
+        return Padding(
+          padding: EdgeInsets.fromLTRB(16, 20, 16, 16 + bottomPadding),
+          child: ListView(
               children: [
                 Row(
                   children: [
@@ -165,7 +164,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 }),
               ],
             ),
-          ),
         );
       },
     );

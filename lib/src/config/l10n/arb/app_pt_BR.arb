@@ -191,5 +191,41 @@
     "home": "Início",
     "@home": {
         "description": "Home navigation item"
+    },
+    "homeSearchHint": "Pesquisar imóveis...",
+    "@homeSearchHint": {
+        "description": "Texto de placeholder na barra de pesquisa da tela inicial"
+    },
+    "homeFilterAll": "Todos",
+    "@homeFilterAll": {
+        "description": "Rótulo do chip de filtro para exibir todos os anúncios"
+    },
+    "homeFilterMyAds": "Meus Anúncios",
+    "@homeFilterMyAds": {
+        "description": "Rótulo do chip de filtro para exibir somente os anúncios do usuário autenticado"
+    },
+    "homeFilterRent": "Aluguel",
+    "@homeFilterRent": {
+        "description": "Rótulo do chip de filtro para exibir somente anúncios de aluguel"
+    },
+    "homeFilterSale": "Venda",
+    "@homeFilterSale": {
+        "description": "Rótulo do chip de filtro para exibir somente anúncios de venda"
+    },
+    "homeEmptyTitle": "Nenhum imóvel encontrado",
+    "@homeEmptyTitle": {
+        "description": "Título exibido quando a lista de anúncios está vazia"
+    },
+    "homeEmptyDescription": "Tente ajustar os filtros ou a pesquisa",
+    "@homeEmptyDescription": {
+        "description": "Descrição exibida quando a lista de anúncios está vazia"
+    },
+    "homeLoadError": "Erro ao carregar imóveis",
+    "@homeLoadError": {
+        "description": "Mensagem de erro exibida quando os anúncios não carregam"
+    },
+    "homeRetry": "Tentar novamente",
+    "@homeRetry": {
+        "description": "Rótulo do botão para tentar carregar os anúncios novamente após erro"
     }
 }

@@ -388,6 +388,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Home'**
   String get home;
+
+  /// Placeholder text in the home screen search bar
+  ///
+  /// In en, this message translates to:
+  /// **'Search properties...'**
+  String get homeSearchHint;
+
+  /// Filter chip label to show all property ads
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get homeFilterAll;
+
+  /// Filter chip label to show only the authenticated user's ads
+  ///
+  /// In en, this message translates to:
+  /// **'My Ads'**
+  String get homeFilterMyAds;
+
+  /// Filter chip label to show only rental ads
+  ///
+  /// In en, this message translates to:
+  /// **'Rent'**
+  String get homeFilterRent;
+
+  /// Filter chip label to show only sale ads
+  ///
+  /// In en, this message translates to:
+  /// **'Sale'**
+  String get homeFilterSale;
+
+  /// Title shown when the property ads list is empty
+  ///
+  /// In en, this message translates to:
+  /// **'No properties found'**
+  String get homeEmptyTitle;
+
+  /// Description shown when the property ads list is empty
+  ///
+  /// In en, this message translates to:
+  /// **'Try adjusting the filters or search term'**
+  String get homeEmptyDescription;
+
+  /// Error message shown when property ads fail to load
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load properties'**
+  String get homeLoadError;
+
+  /// Button label to retry loading property ads after an error
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get homeRetry;
 }
 
 class _AppLocalizationsDelegate

@@ -12,8 +12,13 @@ import 'package:provider/provider.dart';
 
 class MainNavigation extends StatefulWidget {
   final MainViewModel mainViewmodel;
+  final bool refreshHomeOnInit;
 
-  const MainNavigation({super.key, required this.mainViewmodel});
+  const MainNavigation({
+    super.key,
+    required this.mainViewmodel,
+    this.refreshHomeOnInit = true,
+  });
 
   @override
   State<MainNavigation> createState() => _MainNavigationState();
@@ -49,7 +54,10 @@ class _MainNavigationState extends State<MainNavigation> {
           body: IndexedStack(
             index: widget.mainViewmodel.selectedIndex,
             children: [
-              HomeScreen(homeViewModel: widget.mainViewmodel.homeViewModel),
+              HomeScreen(
+                homeViewModel: widget.mainViewmodel.homeViewModel,
+                refreshOnInit: widget.refreshHomeOnInit,
+              ),
               SettingsScreen(),
             ],
           ),

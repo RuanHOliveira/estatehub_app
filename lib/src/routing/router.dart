@@ -38,7 +38,12 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: Routes.mainNavigation,
       builder: (context, state) {
-        return MainNavigation(mainViewmodel: context.read<MainViewModel>());
+        final extra = state.extra as Map<String, dynamic>?;
+        final refreshHome = extra?['refreshHome'] as bool? ?? true;
+        return MainNavigation(
+          mainViewmodel: context.read<MainViewModel>(),
+          refreshHomeOnInit: refreshHome,
+        );
       },
     ),
   ],

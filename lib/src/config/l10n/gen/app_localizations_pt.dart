@@ -160,6 +160,33 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get home => 'Início';
+
+  @override
+  String get homeSearchHint => 'Pesquisar imóveis...';
+
+  @override
+  String get homeFilterAll => 'Todos';
+
+  @override
+  String get homeFilterMyAds => 'Os Meus Anúncios';
+
+  @override
+  String get homeFilterRent => 'Arrendamento';
+
+  @override
+  String get homeFilterSale => 'Venda';
+
+  @override
+  String get homeEmptyTitle => 'Nenhum imóvel encontrado';
+
+  @override
+  String get homeEmptyDescription => 'Tente ajustar os filtros ou a pesquisa';
+
+  @override
+  String get homeLoadError => 'Erro ao carregar imóveis';
+
+  @override
+  String get homeRetry => 'Tentar novamente';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -318,4 +345,31 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get home => 'Início';
+
+  @override
+  String get homeSearchHint => 'Pesquisar imóveis...';
+
+  @override
+  String get homeFilterAll => 'Todos';
+
+  @override
+  String get homeFilterMyAds => 'Meus Anúncios';
+
+  @override
+  String get homeFilterRent => 'Aluguel';
+
+  @override
+  String get homeFilterSale => 'Venda';
+
+  @override
+  String get homeEmptyTitle => 'Nenhum imóvel encontrado';
+
+  @override
+  String get homeEmptyDescription => 'Tente ajustar os filtros ou a pesquisa';
+
+  @override
+  String get homeLoadError => 'Erro ao carregar imóveis';
+
+  @override
+  String get homeRetry => 'Tentar novamente';
 }
