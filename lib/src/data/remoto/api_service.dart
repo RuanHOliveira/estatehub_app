@@ -10,10 +10,7 @@ import 'package:http_parser/http_parser.dart';
 class ApiService {
   String get _baseUrl => dotenv.env['API_URL'] ?? 'http://localhost:8080/v1';
 
-  Future<Result<dynamic>> get(
-    String path, {
-    required String token,
-  }) async {
+  Future<Result<dynamic>> get(String path, {required String token}) async {
     try {
       final uri = Uri.parse('$_baseUrl$path');
       final headers = {
@@ -22,7 +19,7 @@ class ApiService {
       };
       final response = await http
           .get(uri, headers: headers)
-          .timeout(const Duration(seconds: 15));
+          .timeout(const Duration(seconds: 5));
 
       final decoded = jsonDecode(response.body);
 
@@ -45,10 +42,7 @@ class ApiService {
     }
   }
 
-  Future<Result<void>> delete(
-    String path, {
-    required String token,
-  }) async {
+  Future<Result<void>> delete(String path, {required String token}) async {
     try {
       final uri = Uri.parse('$_baseUrl$path');
       final headers = {
@@ -57,14 +51,15 @@ class ApiService {
       };
       final response = await http
           .delete(uri, headers: headers)
-          .timeout(const Duration(seconds: 15));
+          .timeout(const Duration(seconds: 5));
 
       if (response.statusCode >= 200 && response.statusCode < 300) {
         return Result.success(null);
       }
 
-      final decoded =
-          response.body.isNotEmpty ? jsonDecode(response.body) : null;
+      final decoded = response.body.isNotEmpty
+          ? jsonDecode(response.body)
+          : null;
       final errorCode =
           (decoded is Map<String, dynamic> ? decoded['error_code'] : null) ??
           'ErrUnknown';
@@ -107,9 +102,9 @@ class ApiService {
         );
       }
 
-      final streamedResponse = await request
-          .send()
-          .timeout(const Duration(seconds: 15));
+      final streamedResponse = await request.send().timeout(
+        const Duration(seconds: 5),
+      );
       final response = await http.Response.fromStream(streamedResponse);
 
       final decoded = jsonDecode(response.body);
@@ -146,8 +141,7 @@ class ApiService {
       };
       final response = await http
           .post(uri, headers: headers, body: jsonEncode(body))
-          .timeout(const Duration(seconds: 15));
-
+          .timeout(const Duration(seconds: 5));
       final decoded = jsonDecode(response.body);
 
       if (response.statusCode >= 200 && response.statusCode < 300) {
