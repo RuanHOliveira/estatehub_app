@@ -71,7 +71,7 @@ lib/src/
 
 ```bash
 git clone <url-do-repositorio>
-cd estatehub_api
+cd estatehub_app
 ```
 
 ### 2. Instalar dependências
